@@ -1,27 +1,34 @@
 import { defineCollection, defineCollections } from 'vuepress-theme-plume'
 
-const UserGuide = defineCollection({
+const Guide = defineCollection({
   type: 'doc',
-  // 文档集合所在目录，相对于 `docs`
-  dir: 'user-guide',
-  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `linkPrefix` 配置作为前缀
-  // 如果 前缀不一致，则无法生成侧边栏。
-  // 所以请确保  markdown 文件的 permalink 都以 `linkPrefix` 开头
-  linkPrefix: '/user-guide',
-  title: '用户指南',
-  sidebar: 'auto',
-})
-
-const DevelopGuide = defineCollection({
-  type: 'doc',
-  // 文档集合所在目录，相对于 `docs`
-  dir: 'develop-guide',
-  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `linkPrefix` 配置作为前缀
-  // 如果 前缀不一致，则无法生成侧边栏。
-  // 所以请确保  markdown 文件的 permalink 都以 `linkPrefix` 开头
-  linkPrefix: '/develop-guide',
-  title: '开发指南',
-  sidebar: 'auto',
+  dir: 'guide',
+  linkPrefix: 'guide',
+  title: '指南',
+  sidebar: [
+    {
+      text: '用户指南',
+      icon: 'mdi:user-outline',
+      prefix: 'user',
+      items: [
+        { text: '界面介绍', icon: 'mdi:cellphone', link: 'interface-introduction' },
+        { text: '课表导入', icon: 'mdi:calendar-end-outline', link: 'schedule-import' },
+        { text: '已适配学校', icon: 'boxicons:school', link: 'adapted-school' },
+        { text: '导出与分享', icon: 'mdi:export', link: 'export-and-share' },
+        { text: '个性化配置', icon: 'mdi:palette-outline', link: 'personalized-configuration' }
+      ]
+    },
+    {
+      text: '开发指南',
+      icon: 'mdi:code',
+      prefix: 'developer',
+      items: [
+        { text: '应用开发', icon: 'mdi:android', link: 'app-dev' },
+        { text: '小部件开发', icon: 'mdi:widgets-outline', link: 'widget-dev' },
+        { text: '学校教务系统适配', icon: 'mdi:school-outline', link: 'school-adaptation' }
+      ]
+    }
+  ]
 })
 
 const Faq = defineCollection({
@@ -29,20 +36,11 @@ const Faq = defineCollection({
   dir: "faq",
   title: "常见问题",
   link: "/faq/",
-  //   linkPrefix: '/article/', // 相关文章的链接前缀
-  //   postList: true, // 是否启用文章列表页
-  //   tags: true, // 是否启用标签页
-  archives: false, // 是否启用归档页
-  categories: false, // 是否启用分类页
-  //   postCover: 'right', // 文章封面位置
-  //   pagination: 15, // 每页显示文章数量
+  archives: false,
+  categories: false
 });
 
-/**
- * 导出所有的 collections
- */
 export default defineCollections([
-  UserGuide,
-  DevelopGuide,
+  Guide,
   Faq
 ])

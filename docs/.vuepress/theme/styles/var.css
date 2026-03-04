@@ -1,5 +1,5 @@
 :root {
-  --vp-layout-max-width: 1660px;
+  --vp-layout-max-width: 1600px;
   /** 主题颜色 */
 
   /*
@@ -46,6 +46,7 @@
   --vp-c-text-3: rgb(235, 235, 245);
 }
 
-.vp-icon {
-  font-size: 1.3em;
+.vp-navbar-menu.menu .vp-icon,
+.vp-social-links.vp-navbar-social-links.social-links .vp-icon {
+  font-size: 1.25em;
 }
