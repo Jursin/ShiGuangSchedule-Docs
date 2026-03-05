@@ -20,7 +20,7 @@ config:
         - theme: alt
           text: 下载
           icon: lucide:download
-          link: https://github.com/XingHeYuZhuan/shiguangschedule/releases/latest
+          link: /download
 
   - type: features
     features:
@@ -62,21 +62,3 @@ config:
         details: 支持简体中文、繁体中文、英语
   - type: custom
 ---
-
-<div align="center">
-
-![GitHub Stars](https://img.shields.io/github/stars/XingHeYuZhuan/shiguangschedule.svg?style=flat&label=Stars)
-![GitHub Downloads](https://img.shields.io/github/downloads/XingHeYuZhuan/shiguangschedule/total?style=flat&label=Downloads)
-![License](https://img.shields.io/github/license/XingHeYuZhuan/shiguangschedule?label=License)
-
-</div>
-
-## 贡献者
-
-> 欢迎任何人提交你的贡献
-
-### 教务适配贡献
-[![app-Contributors](https://stg.contrib.rocks/image?repo=XingHeYuZhuan/shiguang_warehouse)](https://github.com/XingHeYuZhuan/shiguang_warehouse/graphs/contributors)
-
-### 软件开发贡献
-[![app-Contributors](https://stg.contrib.rocks/image?repo=XingHeYuZhuan/shiguangschedule)](https://github.com/XingHeYuZhuan/shiguangschedule/graphs/contributors)
