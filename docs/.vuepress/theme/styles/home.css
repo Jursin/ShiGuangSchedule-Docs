@@ -1,0 +1,12 @@
+/* 首页 */
+@media (min-width: 960px) {
+  .doc-hero-main .heading .text {
+    font-size: 40px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .vp-button + .vp-button {
+    margin-left: 0.5em !important;
+  }
+}

@@ -8,8 +8,8 @@ interface DeviceType {
   patterns: string[]
 }
 
-type DownloadSourceId = 'official' | 'gh-proxy.net' | 'gh-proxy.top'
-type AppVersionTypeId = 'stable' | 'dev'
+type DownloadSourceId = 'gitee.com' | 'github.com' | 'gh-proxy.net' | 'gh-proxy.top'
+type AppVersionTypeId = 'prod' | 'dev'
 
 interface DownloadSource {
   id: DownloadSourceId
@@ -27,15 +27,15 @@ const releases = ref<any[]>([])
 const isLoading = ref(false)
 const hasError = ref(false)
 const errorMessage = ref('')
-const selectedAppVersionType = ref<AppVersionTypeId>('stable')
+const selectedAppVersionType = ref<AppVersionTypeId>('prod')
 const selectedDeviceType = ref<'all' | 'arm64-v8a' | 'armeabi-v7a' | 'x86_64'>('all')
-const selectedDownloadSource = ref<DownloadSourceId>('official')
+const selectedDownloadSource = ref<DownloadSourceId>('gitee.com')
 const isAppVersionDropdownOpen = ref(false)
 const isDeviceDropdownOpen = ref(false)
 const isSourceDropdownOpen = ref(false)
 
 const appVersionTypes: AppVersionType[] = [
-  { id: 'stable', name: '正式版', description: '普通用户使用' },
+  { id: 'prod', name: '正式版', description: '普通用户使用' },
   { id: 'dev', name: '开发者版', description: '开发者测试使用' }
 ]
 
@@ -67,7 +67,8 @@ const baseDeviceTypes: DeviceType[] = [
 ]
 
 const downloadSources: DownloadSource[] = [
-  { id: 'official', name: 'github.com', description: 'GitHub 官方源' },
+  { id: 'gitee.com', name: 'gitee.com', description: 'Gitee 镜像源' },
+  { id: 'github.com', name: 'github.com', description: 'GitHub 官方源' },
   { id: 'gh-proxy.net', name: 'gh-proxy.net', description: 'GitHub 镜像源' },
   { id: 'gh-proxy.top', name: 'gh-proxy.top', description: 'GitHub 镜像源' }
 ]
@@ -137,7 +138,13 @@ function getProxyUrl(proxyHost: string, asset: any): string {
 
 function getDownloadUrl(asset: any): string {
   const baseUrl = asset.browser_download_url
-  if (selectedDownloadSource.value === 'official') {
+  if (selectedDownloadSource.value === 'gitee.com') {
+    return baseUrl.replace(
+      'https://github.com/XingHeYuZhuan/shiguangschedule',
+      'https://gitee.com/XingHeYuZhuan-gh/shiguangschedule'
+    )
+  }
+  if (selectedDownloadSource.value === 'github.com') {
     return baseUrl
   }
   return getProxyUrl(selectedDownloadSource.value, asset)
@@ -212,8 +219,8 @@ onMounted(() => {
     <div v-else-if="currentRelease" class="release-info">
       <!-- 版本信息头部 -->
       <div class="release-header">
-        <img :src="selectedAppVersionType === 'stable' ? '/icon-prod.png' : '/icon-dev.png'"
-          :alt="selectedAppVersionType === 'stable' ? '正式版' : '开发者版'" class="version-icon">
+        <img :src="selectedAppVersionType === 'prod' ? '/icon-prod.png' : '/icon-dev.png'"
+          :alt="selectedAppVersionType === 'prod' ? '正式版' : '开发者版'" class="version-icon">
         <div class="release-title-row">
           <span class="release-name">{{ currentRelease.name }}</span>
           <span class="release-date">{{ new Date(currentRelease.published_at).toLocaleDateString('zh-CN') }}</span>

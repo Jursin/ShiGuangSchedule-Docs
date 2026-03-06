@@ -7,4 +7,4 @@ tags:
 
 请检查相关必要权限是否开启
 
-<img src="/images/faq/课程提醒设置.jpg" width="50%">
+<img src="/images/课程提醒设置.png" width="50%">

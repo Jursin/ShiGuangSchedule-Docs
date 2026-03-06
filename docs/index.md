@@ -5,8 +5,8 @@ config:
     background: tint-plate
     hero:
       name: 拾光课程表
-      text: 便利每一次课程表查看
-      tagline: 一款面向中国高校师生的课程表管理工具
+      text: 面向中国高校师生的课程表应用
+      tagline: 开源·轻量·启动快·无广告
       image: /logo.png
       actions:
         - theme: brand

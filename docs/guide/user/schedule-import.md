@@ -67,7 +67,11 @@ createTime: 2026/03/04 20:22:12
 打开**课表页面**后再点击**执行导入**
 :::
 
-## WakeUp课程表分享口令导入
+## WakeUp 课程表分享口令导入
+
+::: tip
+对于本应用暂未适配但 WakeUp 课程表适配的教务系统，可以在 WakeUp 课程表从教务系统导入后再导出分享口令，然后在本应用选择 WakeUp 课程表分享口令导入
+:::
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
   <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">

@@ -12,7 +12,9 @@ export default defineNavbarConfig([
           { text: '界面介绍', icon: 'mdi:cellphone', link: '/guide/user/interface-introduction' },
           { text: '课表导入', icon: 'mdi:calendar-end-outline', link: '/guide/user/schedule-import' },
           { text: '已适配学校', icon: 'boxicons:school', link: '/guide/user/adapted-school' },
+          { text: '添加课表/时间表', icon: 'mdi:table-edit', link: '/guide/user/add-table' },
           { text: '导出与分享', icon: 'mdi:export', link: '/guide/user/export-and-share' },
+          { text: '高级功能', icon: 'mdi:layers', link: '/guide/user/advanced' },
           { text: '个性化配置', icon: 'mdi:palette-outline', link: '/guide/user/personalized-configuration' }
         ]
       },

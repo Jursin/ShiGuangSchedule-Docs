@@ -26,3 +26,5 @@ aside: false
 
 ### 软件开发贡献
 [![app-Contributors](https://stg.contrib.rocks/image?repo=XingHeYuZhuan/shiguangschedule)](https://github.com/XingHeYuZhuan/shiguangschedule/graphs/contributors)
+
+## [开源许可证](https://raw.githubusercontent.com/XingHeYuZhuan/shiguangschedule/refs/heads/main/app/src/main/assets/open_source_licenses.html)
