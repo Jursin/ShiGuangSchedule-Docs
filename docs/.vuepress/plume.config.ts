@@ -11,7 +11,7 @@ export default defineThemeConfig({
   appearance: true,  // 配置 深色模式
 
   social: [
-    { icon: 'github', link: 'https://github.com/XingHeYuZhuan/shiguangschedule' },
+    { icon: 'github', link: 'https://github.com/Jursin/ShiGuangSchedule-Docs' },
     { icon: 'qq', link: 'https://qm.qq.com/q/Ahm5AuJc0o' },
   ],
   navbarSocialInclude: ['github', 'qq'], // 允许显示在导航栏的 social 社交链接

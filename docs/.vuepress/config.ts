@@ -21,9 +21,9 @@ export default defineUserConfig({
     // hostname: 'https://your_site_url',
 
     /* 文档仓库配置，用于 editLink */
-    docsRepo: 'https://github.com/XingHeYuZhuan/ShiGuangSchedule-Docs',
-    // docsDir: 'docs',
-    // docsBranch: '',
+    docsRepo: 'https://github.com/Jursin/ShiGuangSchedule-Docs',
+    docsDir: 'docs',
+    docsBranch: 'main',
 
     /* 页内信息 */
     // editLink: true,
@@ -164,6 +164,10 @@ export default defineUserConfig({
      */
     llmstxt: {
       locale: '/',    // 默认仅为主语言生成 llms 友好内容
+    },
+
+    plugins: {
+      git: true
     }
   }),
 })
