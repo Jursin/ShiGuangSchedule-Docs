@@ -5,6 +5,8 @@ tags:
     - 课程提醒
 ---
 
+::: important
 请检查相关必要权限是否开启
+:::
 
-<img src="/images/课程提醒设置.png" width="50%">
+<img src="/images/课程提醒设置.png" width="50%" style="display: block; margin: 0 auto;">

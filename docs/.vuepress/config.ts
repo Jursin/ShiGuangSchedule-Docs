@@ -165,9 +165,5 @@ export default defineUserConfig({
     llmstxt: {
       locale: '/',    // 默认仅为主语言生成 llms 友好内容
     },
-
-    plugins: {
-      git: true
-    }
   }),
 })
