@@ -28,10 +28,11 @@ jobs:
       - name: Run Sync Script
         run: node tools/sync-schools.cjs
 
-      - name: Commit and Push
+      - name: Commit and Push (Forced Test)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/guide/user/adapted-school.md
-          # 检查是否有变动，避免没有更新时报错
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: 自动同步学校索引" && git push)
+          # 强制 commit，不管有没有变动
+          git commit -m "chore: 强制触发同步测试" || echo "No changes"
+          git push
