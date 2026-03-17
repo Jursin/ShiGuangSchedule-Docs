@@ -16,13 +16,17 @@ createTime: 2026/03/04 20:23:00
 
 2. **Beta**阶段
 
-   - [Fork](https://github.com/XingHeYuZhuan/shiguang_warehouse/fork) 适配代码仓库并建立自己的分支，阅读 README 后在指定位置创建适配代码
-   - 将适配代码放到**指定位置**以在不编译索引的情况下进行更新测试
-   - 在应用**我的-更多-更新教务适配仓库**中选择**自定义仓库/私有仓库**，点击**更新**等待完成后回到**教务系统导入**进行测试
-   - 完成 Beta 阶段适配验证，确认没有问题后提交 [Pull Request](https://github.com/XingHeYuZhuan/shiguang_warehouse/pulls) 到适配代码仓库等待合并
+   - [Fork](https://github.com/XingHeYuZhuan/shiguang_warehouse/fork)
+   适配代码仓库并建立自己的分支，建议在 `resources/GLOBAL_TOOLS/test.js`
+   里放置适配测试代码，应用定义这个位置作为适配占位符
+   - 更新仓库结构后需要运行 GitHub 工作流来编译索引，应用只接收编译过的索引文件
+   - 在应用**我的-更多-更新教务适配仓库**中选择**自定义仓库/私有仓库**，填写后点击**更新**等待完成，然后回到**教务系统导入**进行测试
+   - 修改适配代码后需要再次**更新教务适配仓库**
+   - 完成 Beta 阶段适配验证，将适配脚本放在指定位置并在索引文件添加，确认没有问题后提交 [Pull Request](https://github.com/XingHeYuZhuan/shiguang_warehouse/pulls) 到适配代码仓库等待合并
 
      ::: important
-     为避免代码出现问题，`main` 分支启用分支保护，需要先合并到 `pending` 分支等待分支同步
+     - 不要提交 `test.js` 的修改
+     - 为避免代码出现问题，`main` 分支启用分支保护，需要先合并到 `pending` 分支等待分支同步
      :::
 :::
 
