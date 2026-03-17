@@ -5,9 +5,11 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
-# 全局环境变量，解决弃用警告
+permissions:
+  contents: write
+
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  TZ: Asia/Shanghai
 
 jobs:
   sync:
@@ -15,24 +17,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24' # 修改这里，从 20 改为 24
+          node-version: '24'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        # 即使你的脚本目前是零依赖，npm install 也是个好习惯
-        # 如果你确实没用任何包，这行可以不写
-        run: npm install 
+        run: pnpm install --frozen-lockfile
 
       - name: Run Sync Script
-        run: node tools/sync-schools.cjs
+        run: pnpm sync
 
-      - name: Commit and Push (Forced Test)
+      - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/guide/user/adapted-school.md
-          # 强制 commit，不管有没有变动
-          git commit -m "chore: 强制触发同步测试" || echo "No changes"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: 自动同步已适配学校列表"
           git push
