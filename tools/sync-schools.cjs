@@ -4,7 +4,7 @@ const path = require('path');
 
 // --- 配置区 ---
 const SOURCE_URL = "https://raw.githubusercontent.com/XingHeYuZhuan/shiguang_warehouse/main/index/root_index.yaml";
-const TARGET_FILE = path.resolve(__dirname, '../../docs/guide/user/adapted-school.md');
+const TARGET_FILE = path.join(__dirname, '..', 'docs', 'guide', 'user', 'adapted-school.md');
 const REPO_BASE_URL = "https://github.com/XingHeYuZhuan/shiguang_warehouse";
 const REPO_SRC_URL = `${REPO_BASE_URL}/tree/main`;
 
