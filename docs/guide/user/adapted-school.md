@@ -1,11 +1,11 @@
 ---
 title: 已适配学校
-createTime: 2026/03/18 00:04:15
+createTime: 2026/03/18 00:13:57
 ---
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/03/18 00:04:15`
+> 本页面由脚本自动同步，最后更新于：`2026/03/18 00:13:57`
 
 ## 🛠️ 通用工具与教务
 
