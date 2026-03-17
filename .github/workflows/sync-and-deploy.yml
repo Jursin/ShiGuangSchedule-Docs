@@ -2,8 +2,12 @@ name: 自动同步学校索引
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天北京时间上午 8 点自动运行
-  workflow_dispatch:      # 允许你在 GitHub 页面上点击按钮手动触发
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+# 全局环境变量，解决弃用警告
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   sync:
@@ -14,14 +18,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # 修改这里，从 20 改为 24
+
+      - name: Install dependencies
+        # 即使你的脚本目前是零依赖，npm install 也是个好习惯
+        # 如果你确实没用任何包，这行可以不写
+        run: npm install 
 
       - name: Run Sync Script
-        run: npm run sync
+        run: node tools/sync-schools.cjs
 
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/guide/user/adapted-school.md
+          # 检查是否有变动，避免没有更新时报错
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: 自动同步学校索引" && git push)
