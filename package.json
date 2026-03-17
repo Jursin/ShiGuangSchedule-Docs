@@ -11,7 +11,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
-    "vp-update": "pnpm dlx vp-update"
+    "vp-update": "pnpm dlx vp-update",
+    "sync": "node tools/sync-schools.cjs"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.26",
