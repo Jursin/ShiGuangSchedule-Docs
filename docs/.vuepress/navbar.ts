@@ -15,8 +15,7 @@ export default defineNavbarConfig([
           { text: '添加课表/时间表', icon: 'mdi:table-edit', link: '/guide/user/add-table' },
           { text: '导出与分享', icon: 'mdi:export', link: '/guide/user/export-and-share' },
           { text: '高级功能', icon: 'mdi:layers', link: '/guide/user/advanced' },
-          { text: '个性化配置', icon: 'mdi:palette-outline', link: '/guide/user/personalized-configuration' },
-          { text: '手环版', icon: 'tabler:device-watch', link: '/guide/user/band-edition' }
+          { text: '个性化配置', icon: 'mdi:palette-outline', link: '/guide/user/personalized-configuration' }
         ]
       },
       { text: '开发指南',
