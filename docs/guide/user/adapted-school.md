@@ -1,11 +1,11 @@
 ---
 title: 已适配学校
-createTime: 2026/03/18 00:13:57
+createTime: 2026/03/23 10:04:07
 ---
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/03/18 00:13:57`
+> 本页面由脚本自动同步，最后更新于：`2026/03/23 10:04:07`
 
 ## 🛠️ 通用工具与教务
 
@@ -40,8 +40,10 @@ createTime: 2026/03/18 00:13:57
 - [广东药科大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/GDPU)
 - [广西电力职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/GXDLXY)
 - [广州松田职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/GZST)
+- [桂林医科大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/GLMU)
 ### H
 - [河北地质大学华信学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/HBGUHX)
+- [河南财经政法大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/HUEL)
 - [河南工业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/HAUT)
 - [河南师范大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/HNSF)
 - [河南职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/HNZY)
