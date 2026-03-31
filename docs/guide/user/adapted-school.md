@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/03/30 10:13:33`
+> 本页面由脚本自动同步，最后更新于：`2026/03/31 10:09:21`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -32,6 +32,7 @@ createTime: 2026/03/04 20:21:35
 ### D
 - [大连海事大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/DLMU/adapters.yaml)
 - [东北大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NEU/adapters.yaml)
+- [东北大学秦皇岛分校](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NEUQ/adapters.yaml)
 - [东北农业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NEAU/adapters.yaml)
 - [东北师范大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NENU/adapters.yaml)
 ### F
