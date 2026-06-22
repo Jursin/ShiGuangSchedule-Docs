@@ -23,9 +23,10 @@ import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 <img src="https://starcharts.jursin.top/XingHeYuZhuan/shiguangschedule.svg?background=%231b1b1f&axis=%23ffffff&line=%236b63ff" alt="深色主题" class="dark">
 
 ## 相关仓库
-
-<RepoCard repo="XingHeYuZhuan/shiguang_warehouse" />
-<RepoCard repo="XingHeYuZhuan/shiguang_Tester" />
+<CardGrid>
+  <RepoCard repo="XingHeYuZhuan/shiguang_warehouse" />
+  <RepoCard repo="XingHeYuZhuan/shiguang_Tester" />
+</CardGrid>
 
 ## 联系我们
 - QQ 群：[1021806068](https://qm.qq.com/q/Ahm5AuJc0o)

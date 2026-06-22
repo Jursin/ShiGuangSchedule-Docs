@@ -28,6 +28,6 @@ export default defineNavbarConfig([
     ]
   },
   { text: '常见问题', icon: 'mingcute:question-line', link: '/faq/' },
-  { text: '更新日志', icon: 'material-symbols:history-rounded', link: '/changelog' },
+  { text: '更新日志', icon: 'material-symbols:history-rounded', link: '/changelog', badge: { text: '新', type: 'tip' }, },
   { text: '关于', icon: 'material-symbols:info-outline-rounded', link: '/about' }
 ])

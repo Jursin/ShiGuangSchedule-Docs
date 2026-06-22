@@ -9,6 +9,20 @@ aside: false
 externalLinkIcon: false
 ---
 
+## [v1.2.4](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.4) <Badge type="tip" text="2026-06-22" />
+### ✨ 新增功能 (Features)
+- 支持课表样式备份与恢复并优化备份模块容错性
+- 实现数据备份与恢复功能，支持 WebDAV 云同步及本地文件导出
+- 支持跨周挂起拖拽并新增悬浮挂起课程展示
+ -引入24小时时间轴模式并支持交互式手势调课
+- 扩展课程预设数据模型并支持更多字段的自动填充
+### 💡 功能与体验优化 (Improvements)
+- 增强课程导入校验逻辑并优化时间段管理
+- 优化课表拖拽交互逻辑并完善 24 小时模式兼容性
+- 优化底部导航栏的折叠动画表现并实现布局间距动态联动
+- 提升 ScheduleGrid 滚动状态控制并优化底部导航栏显示逻辑
+- 优化时间段管理逻辑并增加时间冲突校验
+
 ## [v1.2.3](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.3) <Badge type="tip" text="2026-05-20" />
 
 ### ✨ 新增功能 (Features)
