@@ -3,6 +3,11 @@ title: 课表导入
 createTime: 2026/03/04 20:22:12
 ---
 
+<div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
+  <img src="/images/导入和导出.png" alt="导入和导出" style="width: 100%;">
+  <p style="margin-top: 10px; font-weight: bold;">课表导入/导出</p>
+</div>
+
 ## 课程文件导入
 > 此方式通过 `json` 文件导入，示例 `json` 课程文件：
 
@@ -67,11 +72,7 @@ createTime: 2026/03/04 20:22:12
 打开**课表页面**后再点击**执行导入**
 :::
 
-## WakeUp 课程表分享口令导入
-
-::: tip
-对于本应用暂未适配但 WakeUp 课程表适配的教务系统，可以在 WakeUp 课程表从教务系统导入后再导出分享口令，然后在本应用选择 WakeUp 课程表分享口令导入
-:::
+## 星链课表分享码导入
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
   <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
@@ -79,7 +80,7 @@ createTime: 2026/03/04 20:22:12
     <p style="margin-top: 10px; font-weight: bold;">选择学校-通用工具-通用工具与服务</p>
   </div>
   <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
-    <img src="/images/WakeUp课程表分享口令导入.png" alt="WakeUp课程表分享口令导入" style="width: 100%;">
+    <img src="/images/导入星链课表.png" alt="导入星链课表" style="width: 100%;">
     <p style="margin-top: 10px; font-weight: bold;">执行导入-输入分享口令</p>
   </div>
 </div>

@@ -10,14 +10,11 @@ createTime: 2026/03/04 20:21:25
   </div>
   <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
     <img src="/images/周次课表.png" alt="周次课表" style="width: 100%;">
-    <p style="margin-top: 10px; font-weight: bold;">
-      周次课表
-      <Badge type="tip" text="点击顶部周次可快速跳转" />
-    </p>
+    <p style="margin-top: 10px; font-weight: bold;">周次课表</p>
   </div>
   <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
-    <img src="/images/课程表设置.png" alt="课程表设置" style="width: 100%;">
-    <p style="margin-top: 10px; font-weight: bold;">课程表设置</p>
+    <img src="/images/我的.png" alt="我的" style="width: 100%;">
+    <p style="margin-top: 10px; font-weight: bold;">我的</p>
   </div>
   <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
     <img src="/images/个性化配置.png" alt="个性化配置" style="width: 100%;">
