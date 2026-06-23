@@ -34,6 +34,10 @@ createTime: 2026/03/04 20:21:46
 
   支持 **WebDAV 云同步**与**本地 ZIP 文件**多渠道备份，保障课表数据安全
 
+  ::: tip
+  可使用[坚果云](https://www.jianguoyun.com/)的 WevDAV 服务，免费空间足够使用。
+  :::
+
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
     <div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
       <img src="/images/备份与恢复.png" alt="备份与恢复" style="width: 100%;">

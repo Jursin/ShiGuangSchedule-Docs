@@ -9,7 +9,7 @@ export default defineNavbarConfig([
       { text: '用户指南',
         icon: 'mdi:user-outline',
         items: [
-          { text: '界面介绍', icon: 'mdi:cellphone', link: '/guide/user/interface-introduction' },
+          { text: '界面预览', icon: 'mdi:cellphone', link: '/guide/user/interface-introduction' },
           { text: '课表导入', icon: 'mdi:calendar-end-outline', link: '/guide/user/schedule-import' },
           { text: '已适配学校', icon: 'boxicons:school', link: '/guide/user/adapted-school' },
           { text: '添加课表/时间表', icon: 'mdi:table-edit', link: '/guide/user/add-table' },

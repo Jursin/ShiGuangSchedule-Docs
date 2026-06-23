@@ -3,6 +3,15 @@
   max-width: none !important;
 }
 
+/* 引用容器 */
+.vp-doc blockquote::before {
+  all: unset !important;
+}
+
+blockquote {
+  padding: 8px 16px !important;
+}
+
 /* 特殊标题 */
 #doc-contributors, #doc-changelog {
   border: none;
