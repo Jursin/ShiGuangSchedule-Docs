@@ -9,6 +9,22 @@ aside: false
 externalLinkIcon: false
 ---
 
+## [v1.2.5](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.5) <Badge type="tip" text="2026-07-13" />
+### ✨ 新增功能 (Features)
+- 课表选择对话框支持快速新建课表
+- 点击课程块展示详情弹窗
+### 🐛 Bug 修复 (Bug Fixes)
+- 仅在有效教学周允许添加课程并传递当前周次信息
+### 💡 功能与体验优化 (Improvements)
+- 优化今日课表排序逻辑并实现自动滚动至当前课程
+- 优化课程详情页周次显示及布局调整
+- 星期栏年份位置新增简单周次显示
+- 优化日程头部布局及文字显示，增加日期自适应隐藏逻辑
+- 优化课程块时间显示逻辑，支持 24 小时模式显示起止时间
+- 完善数据转换接口中时间段别名限制
+### 🚀 性能与代码改进 (Improvements)
+- 移除课程块中的多课程重叠堆叠图标及相关逻辑
+
 ## [v1.2.4](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.4) <Badge type="tip" text="2026-06-22" />
 ### ✨ 新增功能 (Features)
 - 支持课表样式备份与恢复并优化备份模块容错性

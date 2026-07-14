@@ -19,8 +19,8 @@ import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 ![License](https://img.shields.io/github/license/XingHeYuZhuan/shiguangschedule?logo=github)
 ![GitHub contributors](https://img.shields.io/github/contributors/XingHeYuZhuan/shiguangschedule?color=32A9C3&labelColor=1B3C4A&logo=contributorcovenant)
 
-<img src="https://starcharts.jursin.top/XingHeYuZhuan/shiguangschedule.svg?variant=light" alt="浅色主题" class="light">
-<img src="https://starcharts.jursin.top/XingHeYuZhuan/shiguangschedule.svg?background=%231b1b1f&axis=%23ffffff&line=%236b63ff" alt="深色主题" class="dark">
+[![Featured｜HelloGitHub](https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=9f09baa3931a4f79940100829d4d0ca4&claim_uid=TRP24EpKZ5sx68l&theme=neutral)](https://hellogithub.com/repository/XingHeYuZhuan/shiguangschedule)
+[![XingHeYuZhuan%2Fshiguangschedule | Trendshift](https://trendshift.io/api/badge/trendshift/repositories/45835/daily?language=Kotlin)](https://trendshift.io/repositories/45835?utm_source=trendshift-badge&utm_medium=badge&utm_campaign=badge-trendshift-45835)
 
 ## 相关仓库
 <CardGrid>

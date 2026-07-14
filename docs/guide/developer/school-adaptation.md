@@ -46,66 +46,66 @@ createTime: 2026/03/04 20:23:00
 
 ### 整体定义
 
-::: field name="courses" type="courses[]" required
+::: field @courses type="courses[]" required
 课程数组
 :::
 
-::: field name="timeSlots" type="timeSlots[]" required
+::: field @timeSlots type="timeSlots[]" required
 时间段数组
 :::
 
-::: field name="config" type="config" required
+::: field @config type="config" required
 课表配置
 :::
 
 ### 课程表（courses）
 
 :::: field-group
-::: field name="id" type="string" optional
+::: field @id type="string" optional
 课程唯一标识，内部参数，由程序自动生成，插件输出时建议省略
 :::
 
-::: field name="name" type="string" required
+::: field @name type="string" required
 课程名称
 :::
 
-::: field name="teacher" type="string" required
+::: field @teacher type="string" required
 教师姓名
 :::
 
-::: field name="position" type="string" required
+::: field @position type="string" required
 上课地点
 :::
 
-::: field name="day" type="int" required
+::: field @day type="int" required
 星期几（1-7，1 表示星期一）
 :::
 
-::: field name="startSection" type="int" required
+::: field @startSection type="int" required
 开始节次
 :::
 
-::: field name="endSection" type="int" required
+::: field @endSection type="int" required
 结束节次
 :::
 
-::: field name="color" type="int" optional
+::: field @color type="int" optional
 课程格子颜色，由程序自动生成，且依赖软件内部颜色方案配置，插件输出时建议省略
 :::
 
-::: field name="weeks" type="list<int>" required
+::: field @weeks type="list<int>" required
 上课周次数组
 :::
 
-::: field name="isCustomTime" type="boolean" optional default="false"
+::: field @isCustomTime type="boolean" optional default="false"
 是否使用自定义时间。为 `true` 时，`customStartTime` 和 `customEndTime` 必填，`startSection` 和 `endSection` 可忽略；为 `false` 或未提供时，`startSection` 和 `endSection` 必填
 :::
 
-::: field name="customStartTime" type="string" optional
+::: field @customStartTime type="string" optional
 自定义开始时间
 :::
 
-::: field name="customEndTime" type="string" optional
+::: field @customEndTime type="string" optional
 自定义结束时间
 :::
 ::::
@@ -113,15 +113,15 @@ createTime: 2026/03/04 20:23:00
 ### 时间表（timeSlots）
 
 :::: field-group
-::: field name="number" type="int" required
+::: field @number type="int" required
 节次编号
 :::
 
-::: field name="startTime" type="string" required
+::: field @startTime type="string" required
 开始时间（格式：`HH:MM`）
 :::
 
-::: field name="endTime" type="string" required
+::: field @endTime type="string" required
 结束时间（格式：`HH:MM`）
 :::
 ::::
@@ -129,23 +129,23 @@ createTime: 2026/03/04 20:23:00
 ### 配置（config）
 
 :::: field-group
-::: field name="semesterStartDate" type="string" optional
+::: field @semesterStartDate type="string" optional
 学期开始日期（格式：`YYYY-MM-DD`）
 :::
 
-::: field name="semesterTotalWeeks" type="int" optional default="20"
+::: field @semesterTotalWeeks type="int" optional default="20"
 学期总周数
 :::
 
-::: field name="defaultClassDuration" type="int" optional default="45"
+::: field @defaultClassDuration type="int" optional default="45"
 默认课程时长（单位：分钟）
 :::
 
-::: field name="defaultBreakDuration" type="int" optional default="10"
+::: field @defaultBreakDuration type="int" optional default="10"
 默认课间休息时长（单位：分钟）
 :::
 
-::: field name="firstDayOfWeek" type="int" optional default="1"
+::: field @firstDayOfWeek type="int" optional default="1"
 一周的第一天，1 代表星期一，7 代表星期日
 :::
 ::::
