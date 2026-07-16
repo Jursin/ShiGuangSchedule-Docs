@@ -48,6 +48,7 @@ function fetchAndGenerate() {
     console.log('🚀 正在从远程仓库同步学校索引...');
 
     const req = https.get(SOURCE_URL, (res) => {
+        res.setEncoding('utf8');
         let data = '';
         if (res.statusCode !== 200) {
             console.error(`❌ 获取失败，状态码: ${res.statusCode}`);
