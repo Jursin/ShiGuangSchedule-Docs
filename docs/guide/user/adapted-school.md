@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/07/16 13:05:37`
+> 本页面由脚本自动同步，最后更新于：`2026/07/21 10:27:02`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -144,6 +144,7 @@ createTime: 2026/03/04 20:21:35
 - [西安文理学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XAWL/adapters.yaml)
 - [西北工业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NWPU/adapters.yaml)
 - [新疆工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XJIE/adapters.yaml)
+- [新疆政法学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XJZFU/adapters.yaml)
 - [信阳农林学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XYAFU/adapters.yaml)
 - [徐州工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XZIT/adapters.yaml)
 ### Y
