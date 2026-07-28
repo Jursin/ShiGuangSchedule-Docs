@@ -9,7 +9,6 @@ export default defineNavbarConfig([
       { text: '用户指南',
         icon: 'mdi:user-outline',
         items: [
-          { text: '界面预览', icon: 'mdi:cellphone', link: '/guide/user/interface-introduction' },
           { text: '课表导入', icon: 'mdi:calendar-end-outline', link: '/guide/user/schedule-import' },
           { text: '已适配学校', icon: 'boxicons:school', link: '/guide/user/adapted-school' },
           { text: '添加课表/时间表', icon: 'mdi:table-edit', link: '/guide/user/add-table' },
@@ -27,7 +26,7 @@ export default defineNavbarConfig([
       }
     ]
   },
-  { text: '常见问题', icon: 'mingcute:question-line', link: '/faq/' },
+  { text: '常见问题', icon: 'mingcute:question-line', link: '/faq' },
   { text: '更新日志', icon: 'material-symbols:history-rounded', link: '/changelog', badge: { text: '新', type: 'tip' }, },
   { text: '关于', icon: 'material-symbols:info-outline-rounded', link: '/about' }
 ])

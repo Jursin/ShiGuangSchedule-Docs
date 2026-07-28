@@ -11,7 +11,7 @@ createTime: 2026/03/04 20:22:12
 ## 课程文件导入
 > 此方式通过 `json` 文件导入，示例 `json` 课程文件：
 
-```json title="shiguangschedule_XXXXXXXX_XXXXXX.json"
+```json title="shiguangschedule_$yyyyMMdd_HHmmss$.json"
 {
     "courses": [
         {

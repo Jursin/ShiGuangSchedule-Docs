@@ -1,6 +1,4 @@
 ---
-pageLayout: page
+pageLayout: Download
 title: 下载
 ---
-
-<Download />

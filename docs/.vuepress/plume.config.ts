@@ -1,6 +1,5 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import navbar from './navbar'
-import collections from './collections'
 
 /**
  * @see https://theme-plume.vuejs.press/config/theme/
@@ -35,7 +34,38 @@ export default defineThemeConfig({
   // },
 
   navbar,
-  collections,
+  collections: [
+    {
+      type: 'doc',
+      dir: 'guide',
+      linkPrefix: 'guide',
+      title: '指南',
+      sidebar: [
+        {
+          text: '用户指南',
+          icon: 'mdi:user-outline',
+          prefix: 'user',
+          items: [
+            { text: '课表导入', icon: 'mdi:calendar-end-outline', link: 'schedule-import' },
+            { text: '已适配学校', icon: 'boxicons:school', link: 'adapted-school' },
+            { text: '添加课表/时间表', icon: 'mdi:table-edit', link: '/guide/user/add-table' },
+            { text: '导出与分享', icon: 'mdi:export', link: 'export-and-share' },
+            { text: '高级功能', icon: 'mdi:layers', link: '/guide/user/advanced' },
+            { text: '个性化配置', icon: 'mdi:palette-outline', link: 'personalized-configuration' }
+          ]
+        },
+        {
+          text: '开发指南',
+          icon: 'mdi:code',
+          prefix: 'developer',
+          items: [
+            { text: '应用开发', icon: 'mdi:android', link: 'app-dev' },
+            { text: '学校教务系统适配', icon: 'mdi:school-outline', link: 'school-adaptation' }
+          ]
+        }
+      ]
+    }
+  ],
 
   /**
    * 公告板

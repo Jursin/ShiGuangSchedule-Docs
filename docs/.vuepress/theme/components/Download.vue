@@ -8,13 +8,12 @@ interface DeviceType {
   patterns: string[]
 }
 
-type DownloadSourceId = 'gitee.com' | 'github.com' | 'wget.la'
+type DownloadSourceId = 'gitee.com' | 'github.com' | 'gh.dpik.top' | 'wget.la'
 type AppVersionTypeId = 'prod' | 'dev'
 
 interface DownloadSource {
   id: DownloadSourceId
   description: string
-  icon?: string
 }
 
 interface AppVersionType {
@@ -69,13 +68,14 @@ const baseDeviceTypes: DeviceType[] = [
 ]
 
 const downloadSources: DownloadSource[] = [
-  { id: 'gitee.com', description: 'Gitee 镜像源', icon: '/icons/gitee.png' },
-  { id: 'github.com', description: 'GitHub 官方源', icon: '/icons/github-dark.png' },
-  { id: 'wget.la', description: 'GitHub 镜像源', icon: '/icons/github-dark.png' }
+  { id: 'gitee.com', description: 'Gitee 镜像源' },
+  { id: 'github.com', description: 'GitHub 官方源' },
+  { id: 'gh.dpik.top', description: 'GitHub 镜像源' },
+  { id: 'wget.la', description: 'GitHub 镜像源' }
 ]
 
 function isGithubSource(sourceId: DownloadSourceId) {
-  return sourceId === 'github.com' || sourceId === 'wget.la'
+  return sourceId === 'github.com' || sourceId === 'wget.la' || sourceId === 'gh.dpik.top'
 }
 
 function isDeveloperReleaseTag(release: any): boolean {
@@ -322,7 +322,6 @@ onMounted(() => {
               <button class="dropdown-trigger" @click="isSourceDropdownOpen = !isSourceDropdownOpen"
                 @blur="handleSourceDropdownBlur">
                 <span class="dropdown-content">
-                  <template v-if="currentDownloadSource.icon">
                     <img
                       v-if="isGithubSource(currentDownloadSource.id)"
                       src="/icons/github-dark.png"
@@ -335,10 +334,9 @@ onMounted(() => {
                     >
                     <img
                       v-else
-                      :src="currentDownloadSource.icon"
+                      src="/icons/gitee.png"
                       class="source-icon"
                     >
-                  </template>
                   <span class="source-info">
                     <span class="source-name">{{ currentDownloadSource.id }}</span>
                     <span class="source-desc">{{ currentDownloadSource.description }}</span>
@@ -352,7 +350,6 @@ onMounted(() => {
                 <button v-for="source in downloadSources" :key="source.id" class="dropdown-item" :class="{
                   'is-selected': selectedDownloadSource === source.id
                 }" @click="selectedDownloadSource = source.id; isSourceDropdownOpen = false">
-                  <template v-if="source.icon">
                     <img
                       v-if="isGithubSource(source.id)"
                       src="/icons/github-dark.png"
@@ -365,10 +362,9 @@ onMounted(() => {
                     >
                     <img
                       v-else
-                      :src="source.icon"
+                      src="/icons/gitee.png"
                       class="source-icon"
                     >
-                  </template>
                   <span class="source-info">
                     <span class="source-name">{{ source.id }}</span>
                     <span class="source-desc">{{ source.description }}</span>

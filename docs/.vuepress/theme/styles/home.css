@@ -1,7 +1,16 @@
 /* 首页 */
+.content-image .vp-image {
+  width: 80% !important;
+  max-width: none !important;
+}
+
 @media (min-width: 960px) {
   .doc-hero-main .heading .text {
     font-size: 40px !important;
+  }
+
+  .content-image .vp-image {
+      max-width: 300px !important;
   }
 }
 
