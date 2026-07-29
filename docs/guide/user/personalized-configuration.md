@@ -3,11 +3,6 @@ title: 个性化配置
 createTime: 2026/03/04 20:21:57
 ---
 
-<div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
-  <img src="/images/个性化配置.png" alt="个性化配置" style="width: 100%;">
-  <p style="margin-top: 10px; font-weight: bold;">个性化配置</p>
-</div>
-
 > **我的-高级功能-个性化配置**，支持以下配置
 
 ### 界面显示

@@ -7,10 +7,13 @@ createTime: 2026/03/06 11:07:09
 
 ## 添加新课表
 
-<div style="display: flex; align-items: center; justify-content: center; gap: 100px;">
-  <p style="margin-left: 50px;">我的-高级功能-管理课表<br/>默认存在一个课表，后续可添加/管理多个课表</p>
-  <img src="/images/管理课表.png" alt="管理课表"width="40%">
-</div>
+::: text-image
+@text
+我的-高级功能-管理课表
+
+默认存在一个课表，后续可添加/管理多个课表
+@image src="/images/管理课表.png"
+:::
 
 ### 添加课程
 > 有以下两种方式：
@@ -32,7 +35,10 @@ createTime: 2026/03/06 11:07:09
 
 ## 自定义时间段
 
-<div style="display: flex; align-items: center; justify-content: center; gap: 100px;">
-  <p style="margin-left: 50px;">我的-高级功能-自定义时间段<br/>可设置默认时长</p>
-  <img src="/images/时间段管理.png" alt="时间段管理"width="40%">
-</div>
+::: text-image
+@image src="/images/时间段管理.png"
+@text
+我的-高级功能-自定义时间段
+
+可设置默认时长
+:::

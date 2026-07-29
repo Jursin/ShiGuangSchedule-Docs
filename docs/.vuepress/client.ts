@@ -5,6 +5,7 @@ import './theme/styles/var.css'
 import './theme/styles/home.css'
 import './theme/styles/doc.css'
 import './theme/styles/posts-container.css'
+import './theme/styles/text-image.css'
 
 export default defineClientConfig({
   enhance({ app }) {

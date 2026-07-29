@@ -3,11 +3,16 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 import { umamiAnalyticsPlugin } from '@vuepress/plugin-umami-analytics'
 
+import { textImagePlugin } from './plugins/text-image'
+
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
   title: '拾光课程表',
   description: '拾光课程表文档站 | 大学课程表 | 安卓应用 | 开源免费',
+  extendsMarkdown: (md) => {
+    md.use(textImagePlugin)
+  },
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],

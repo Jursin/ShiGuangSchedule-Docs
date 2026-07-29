@@ -13,7 +13,8 @@ export default defineNavbarConfig([
           { text: '已适配学校', icon: 'boxicons:school', link: '/guide/user/adapted-school' },
           { text: '添加课表/时间表', icon: 'mdi:table-edit', link: '/guide/user/add-table' },
           { text: '导出与分享', icon: 'mdi:export', link: '/guide/user/export-and-share' },
-          { text: '高级功能', icon: 'mdi:layers', link: '/guide/user/advanced' },
+          { text: '快捷操作', icon: 'mdi:lightning-bolt-outline', link: '/guide/user/quickactions' },
+          { text: '课程提醒', icon: 'mdi:bell-outline', link: '/guide/user/course-notification' },
           { text: '个性化配置', icon: 'mdi:palette-outline', link: '/guide/user/personalized-configuration' }
         ]
       },
@@ -26,6 +27,7 @@ export default defineNavbarConfig([
       }
     ]
   },
+  { text: '下载', icon: 'material-symbols:download', link: '/download' },
   { text: '常见问题', icon: 'mingcute:question-line', link: '/faq' },
   { text: '更新日志', icon: 'material-symbols:history-rounded', link: '/changelog', badge: { text: '新', type: 'tip' }, },
   { text: '关于', icon: 'material-symbols:info-outline-rounded', link: '/about' }

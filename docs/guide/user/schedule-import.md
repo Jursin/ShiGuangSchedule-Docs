@@ -3,10 +3,11 @@ title: 课表导入
 createTime: 2026/03/04 20:22:12
 ---
 
-<div style="text-align: center; flex: 0 0 45%; max-width: 450px;">
-  <img src="/images/导入和导出.png" alt="导入和导出" style="width: 100%;">
-  <p style="margin-top: 10px; font-weight: bold;">课表导入/导出</p>
-</div>
+::: text-image
+@text
+我的-高级功能-课表导入/导出
+@image src="/images/导入和导出.png"
+:::
 
 ## 课程文件导入
 > 此方式通过 `json` 文件导入，示例 `json` 课程文件：

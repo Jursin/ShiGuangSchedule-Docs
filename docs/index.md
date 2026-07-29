@@ -16,7 +16,7 @@ config:
         - theme: alt
           text: 阅读文档
           icon: lucide:list-start
-          link: /guide/user/interface-introduction
+          link: /guide/user/schedule-import
         - theme: alt
           text: 下载
           icon: lucide:download
@@ -33,15 +33,17 @@ config:
       - title: 课程提醒
         icon: mdi:bell-outline
         details: 课前提醒，并可设置上课自动开启勿扰/静音模式
-        link: /guide/user/advanced.html#课程提醒
+        link: /guide/user/course-notification
         linkText: 访问
       - title: 节假日同步
         icon: mdi:calendar-check
         details: 获取全年节假日数据，避免节假日课程打扰
+        link: /guide/user/course-notification.html#节假日同步
+        linkText: 访问
       - title: 快捷操作
         icon: mdi:lightning-bolt-outline
         details: 包括课程调动、快速删除课程等功能
-        link: /guide/user/advanced.html#快捷操作
+        link: /guide/user/quickactions
         linkText: 访问
       - title: 课程导入导出
         icon: mdi:file-transfer-outline

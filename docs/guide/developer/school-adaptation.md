@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:23:00
 
 > 本应用支持用户通过自定义 `JavaScript` 脚本获取**任何来源**（如教务系统、API 接口等）的课程数据，并将其导入到应用中。您只需要使用我们提供的桥接 API，并将数据解析成我们定义好的结构即可。
 
-## 建议开发流程
+## 适配流程
 
 ::: steps
 
@@ -32,10 +32,10 @@ createTime: 2026/03/04 20:23:00
      2. 在电脑上访问：
         - Chrome: `chrome://inspect#devices`
         - Edge: `edge://inspect/#devices`
-        ![](/images/devices-connected.png)
+        ![已连接的设备](/images/devices-connected.png)
     
      3. 在应用内启用 DevTools 网页调试
-        <img src="/images/DevTools.png" style="width: 50%; display: block; margin: 20px auto;">
+        <img src="/images/DevTools.png" alt="DevTools 调试工具" style="width: 50%; display: block; margin: 20px auto;">
      :::
      ::::
    - 在 `index/root_index.yaml` 文件中登记
@@ -88,11 +88,11 @@ createTime: 2026/03/04 20:23:00
 :::
 
 ::: field @startSection type="int" required
-开始节次
+开始节次。当 `isCustomTime` 为 `true` 时可忽略
 :::
 
 ::: field @endSection type="int" required
-结束节次
+结束节次。当 `isCustomTime` 为 `true` 时可忽略
 :::
 
 ::: field @color type="int" optional
@@ -103,16 +103,20 @@ createTime: 2026/03/04 20:23:00
 上课周次数组
 :::
 
+::: field @remark type="string" optional default="null"
+课程备注，字符数限制 300
+:::
+
 ::: field @isCustomTime type="boolean" optional default="false"
 是否使用自定义时间。为 `true` 时，`customStartTime` 和 `customEndTime` 必填，`startSection` 和 `endSection` 可忽略；为 `false` 或未提供时，`startSection` 和 `endSection` 必填
 :::
 
 ::: field @customStartTime type="string" optional
-自定义开始时间
+自定义开始时间（格式：`HH:mm`）。`isCustomTime` 为 `true` 时必填
 :::
 
 ::: field @customEndTime type="string" optional
-自定义结束时间
+自定义结束时间（格式：`HH:mm`）。`isCustomTime` 为 `true` 时必填
 :::
 ::::
 
@@ -124,11 +128,15 @@ createTime: 2026/03/04 20:23:00
 :::
 
 ::: field @startTime type="string" required
-开始时间（格式：`HH:MM`）
+开始时间（格式：`HH:mm`）
 :::
 
 ::: field @endTime type="string" required
-结束时间（格式：`HH:MM`）
+结束时间（格式：`HH:mm`）
+:::
+
+::: field @alias type="string" optional
+时间段别名，如"早自习"，字符数限制 5
 :::
 ::::
 
@@ -384,7 +392,41 @@ AndroidBridge.showToast("正在发送请求...");
 AndroidBridge.notifyTaskCompletion();
 ```
 
-## 适配脚本开发流程建议
+## WebView 页面显示异常的处理
+
+部分教务系统在应用内 WebView 中无法正常显示页面，原因是 Android System WebView 会自动在请求头中添加 `X-Requested-With` 字段（值为应用包名），一些教务系统检测到此字段后拒绝返回正常内容。
+
+::: tip 解决方案
+放弃直接从页面 HTML 提取数据的方案，改用 `Fetch API` 发送请求获取课程数据。这些网站虽显示异常，但登录 Cookie 通常是完整的，只要能找到对应的请求接口，即可通过 `Fetch API` 获取数据（JSON 或 HTML 片段）。
+:::
+
+目前已知存在此问题的教务系统及适配参考：
+
+- **树维教务**：[东北大学秦皇岛分校](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NEUQ)、[长江大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/YANGTZEU)
+
+## 常见教务系统适配案例参考
+
+> 以下案例的课程数据均通过 API 获取，而非解析当前页面 HTML，可更精准地获取课程数据。
+
+| 教务系统 | 适配案例 | adapter_id |
+|---------|---------|------------|
+| **正方教务 v9** | [广东科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDUST) | `GDUST` |
+| **乘方教务** | [山东石油化工学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/SDIPCT) | `SDIPCT` |
+| **树维教务** | [天津农学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TJAU) | `TJAU` |
+| **超星教务** | [山西工程职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/SXGCXY) | `SXGCXY_01` |
+| **URP 教务** | [天津城建大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TCU) | `TCU_01` |
+| **青果教务** | [宿州学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/AHSZU) | `AHSZU_01` |
+| **金智教务** | [三峡大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CTGU) | `CTGU` |
+| **金智新教务** | [成都航空职业技术大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CAPU) | `CAPU` |
+
+::: warning 强智教务
+强智教务系统版本差异较大，部分学校还有定制修改，暂无通用适配方案。以下案例仅作参考，不可直接套用：
+
+- [南昌航空大学科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/STCNCHU)（数据在 `id='kbtable'` 内）
+- [中国石油大学(华东)](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/UPC)（数据在 `id='timetable'` 内）
+:::
+
+## 建议与示例
 
 > 适配脚本的核心在于使用 async/await 来按顺序编排用户交互、网络请求和数据保存。为了实现清晰、高可读性、高可维护性的代码，我们强烈推荐使用结构化编程的方式：将复杂的业务逻辑（如弹窗、网络请求）封装成独立的可调用函数。这样，runImportFlow 函数就如同一个流程控制树，它不再包含具体的业务代码，只负责以清晰的顺序调用这些函数，并在任何关键的取消或失败点，立即终止整个流程。
 
