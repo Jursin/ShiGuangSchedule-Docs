@@ -5,15 +5,15 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/08/03 10:34:04`
+> 本页面由脚本自动同步，最后更新于：`2026/08/04 10:13:12`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
 > 如果你的学校不在下方列表中，可以尝试这些通用适配方案。
 
 - [超星教务系统-通用教务](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/chaoxing_jiaowu/adapters.yaml)
-- [通用工具与服务](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GLOBAL_TOOLS/adapters.yaml)
 - [青果教务-通用教务](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/qingguo_jiaowu/adapters.yaml)
+- [通用工具与服务](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GLOBAL_TOOLS/adapters.yaml)
 - [URP教务-通用教务](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/urp_jiaowu/adapters.yaml)
 - [正方教务-通用教务](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/zhengfang_jiaowu/adapters.yaml)
 
