@@ -12,8 +12,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
     "docs:preview": "http-server docs/.vuepress/dist",
-    "vp-update": "pnpm dlx vp-update",
-    "sync": "node tools/sync-schools.cjs"
+    "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {
     "@iconify/vue": "5.0.1",

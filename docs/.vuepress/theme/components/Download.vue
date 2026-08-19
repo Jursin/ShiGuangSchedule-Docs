@@ -1,24 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 
-interface DeviceType {
-  id: 'all' | 'arm64-v8a' | 'armeabi-v7a' | 'x86_64'
-  name: string
-  description: string
-  patterns: string[]
-}
-
 type DownloadSourceId = 'gitee.com' | 'github.com' | 'gh.dpik.top' | 'wget.la'
-type AppVersionTypeId = 'prod' | 'dev'
 
 interface DownloadSource {
   id: DownloadSourceId
-  description: string
-}
-
-interface AppVersionType {
-  id: AppVersionTypeId
-  name: string
   description: string
 }
 
@@ -26,46 +12,9 @@ const releases = ref<any[]>([])
 const isLoading = ref(false)
 const hasError = ref(false)
 const errorMessage = ref('')
-const selectedAppVersionType = ref<AppVersionTypeId>('prod')
-const selectedDeviceType = ref<'all' | 'arm64-v8a' | 'armeabi-v7a' | 'x86_64'>('all')
 const selectedDownloadSource = ref<DownloadSourceId>('gitee.com')
-const isAppVersionDropdownOpen = ref(false)
-const isDeviceDropdownOpen = ref(false)
-const isSourceDropdownOpen = ref(false)
 const copiedShaAssetId = ref<number | null>(null)
 let copiedShaTimer: number | undefined
-
-const appVersionTypes: AppVersionType[] = [
-  { id: 'prod', name: '正式版', description: '普通用户使用' },
-  { id: 'dev', name: '开发者版', description: '开发者测试使用' }
-]
-
-const baseDeviceTypes: DeviceType[] = [
-  {
-    id: 'all',
-    name: '全部',
-    description: '显示所有架构文件',
-    patterns: ['*']
-  },
-  {
-    id: 'arm64-v8a',
-    name: 'arm64-v8a',
-    description: '64位 ARM 架构（推荐）',
-    patterns: ['arm64-v8a']
-  },
-  {
-    id: 'armeabi-v7a',
-    name: 'armeabi-v7a',
-    description: '32位 ARM 架构',
-    patterns: ['armeabi-v7a']
-  },
-  {
-    id: 'x86_64',
-    name: 'x86_64',
-    description: '64位 x86 架构',
-    patterns: ['x86_64']
-  }
-]
 
 const downloadSources: DownloadSource[] = [
   { id: 'gitee.com', description: 'Gitee 镜像源' },
@@ -78,24 +27,10 @@ function isGithubSource(sourceId: DownloadSourceId) {
   return sourceId === 'github.com' || sourceId === 'wget.la' || sourceId === 'gh.dpik.top'
 }
 
-function isDeveloperReleaseTag(release: any): boolean {
-  const tag = String(release?.tag_name || '').toLowerCase()
-  const title = String(release?.name || '').toLowerCase()
-  const text = `${tag} ${title}`
-  return /(dev|alpha|beta|rc|preview|nightly|canary|test)/.test(text)
-}
-
+// 取第一个 release
 const currentRelease = computed(() => {
   if (!releases.value.length) return null
-  const matcher = selectedAppVersionType.value === 'dev'
-    ? (release: any) => isDeveloperReleaseTag(release)
-    : (release: any) => !isDeveloperReleaseTag(release)
-
-  return releases.value.find(matcher) || releases.value[0]
-})
-
-const currentAppVersionType = computed(() => {
-  return appVersionTypes.find(type => type.id === selectedAppVersionType.value) || appVersionTypes[0]
+  return releases.value[0]
 })
 
 async function fetchLatestRelease() {
@@ -130,7 +65,7 @@ async function fetchLatestRelease() {
   } catch (error) {
     console.error('获取最新版本失败:', error)
     hasError.value = true
-    errorMessage.value = '无法获取版本信息，请检查网络连接或稍后重试'
+    errorMessage.value = '可能是 GitHub API 访问较慢或服务异常，请稍后重试'
   } finally {
     isLoading.value = false
   }
@@ -177,36 +112,6 @@ async function copyAssetSha256(asset: any) {
   }, 2000)
 }
 
-// 根据设备类型过滤资源
-const filteredAssets = computed(() => {
-  if (!currentRelease.value?.assets) return []
-
-  const assets = currentRelease.value.assets
-  if (selectedDeviceType.value === 'all') return assets
-
-  const currentType = baseDeviceTypes.find(type => type.id === selectedDeviceType.value)
-  if (!currentType) return assets
-
-  return assets.filter((asset: any) => {
-    const fileName = asset.name.toLowerCase()
-    return currentType.patterns.some(pattern => {
-      if (pattern === '*') return true
-      return fileName.includes(pattern.toLowerCase())
-    })
-  })
-})
-
-// 获取当前选择的下载源信息
-const currentDownloadSource = computed(() => {
-  return downloadSources.find(source => source.id === selectedDownloadSource.value) || downloadSources[0]
-})
-
-// 获取当前选择的设备类型信息
-const currentDeviceType = computed(() => {
-  const type = baseDeviceTypes.find(d => d.id === selectedDeviceType.value)
-  return type || baseDeviceTypes[0]
-})
-
 // 格式化文件大小
 function formatFileSize(bytes: number): string {
   if (bytes === 0) return '0 Bytes'
@@ -215,11 +120,6 @@ function formatFileSize(bytes: number): string {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
-
-// 处理下拉菜单的blur事件
-const handleAppVersionDropdownBlur = () => setTimeout(() => isAppVersionDropdownOpen.value = false, 200)
-const handleDeviceDropdownBlur = () => setTimeout(() => isDeviceDropdownOpen.value = false, 200)
-const handleSourceDropdownBlur = () => setTimeout(() => isSourceDropdownOpen.value = false, 200)
 
 // 组件挂载时获取数据
 onMounted(() => {
@@ -236,7 +136,7 @@ onMounted(() => {
 
     <div v-else-if="hasError" class="error">
       <div class="error-content">
-        <span class="error-icon">⚠️</span>
+        <span class="error-icon"><Icon name="ic:round-warning" size="3rem" /></span>
         <h3>无法获取版本信息</h3>
         <p>{{ errorMessage }}</p>
         <button class="retry-btn" @click="fetchLatestRelease()">重新加载</button>
@@ -246,8 +146,8 @@ onMounted(() => {
     <div v-else-if="currentRelease" class="release-info">
       <!-- 版本信息头部 -->
       <div class="release-header">
-        <img :src="selectedAppVersionType === 'prod' ? '/icon-prod.png' : '/icon-dev.png'"
-          :alt="selectedAppVersionType === 'prod' ? '正式版' : '开发者版'" class="version-icon">
+        <img src="/icon-prod.png" alt="拾光课程表" class="version-icon">
+        <h1 class="title">下载拾光课程表</h1>
         <div class="release-title-row">
           <Icon name="octicon:tag-16" size="1.4em" />
           <span class="release-name">{{ currentRelease.name }}</span>
@@ -255,124 +155,21 @@ onMounted(() => {
         </div>
       </div>
 
+      <!-- 下载源选择 -->
       <div class="download-selector">
-        <div class="selector-controls">
-          <!-- 应用版本选择器 -->
-          <div class="dropdown-container">
-            <label class="dropdown-label">应用版本</label>
-            <div class="dropdown" :class="{ 'is-open': isAppVersionDropdownOpen }">
-              <button class="dropdown-trigger" @click="isAppVersionDropdownOpen = !isAppVersionDropdownOpen"
-                @blur="handleAppVersionDropdownBlur">
-                <span class="dropdown-content">
-                  <span class="device-info">
-                    <span class="device-name">{{ currentAppVersionType.name }}</span>
-                    <span class="device-desc">{{ currentAppVersionType.description }}</span>
-                  </span>
-                </span>
-                <Icon v-if="isAppVersionDropdownOpen" name="lucide:chevron-up" class="dropdown-arrow" />
-                <Icon v-else name="lucide:chevron-down" class="dropdown-arrow" />
-              </button>
-
-              <div class="dropdown-menu">
-                <button v-for="version in appVersionTypes" :key="version.id" class="dropdown-item"
-                  :class="{ 'is-selected': selectedAppVersionType === version.id }"
-                  @click="selectedAppVersionType = version.id; isAppVersionDropdownOpen = false">
-                  <span class="device-info">
-                    <span class="device-name">{{ version.name }}</span>
-                    <span class="device-desc">{{ version.description }}</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 设备类型选择器 -->
-          <div class="dropdown-container">
-            <label class="dropdown-label">设备架构</label>
-            <div class="dropdown" :class="{ 'is-open': isDeviceDropdownOpen }">
-              <button class="dropdown-trigger" @click="isDeviceDropdownOpen = !isDeviceDropdownOpen"
-                @blur="handleDeviceDropdownBlur">
-                <span class="dropdown-content">
-                  <span class="device-info">
-                    <span class="device-name">{{ currentDeviceType.name }}</span>
-                    <span class="device-desc">{{ currentDeviceType.description }}</span>
-                  </span>
-                </span>
-                <Icon v-if="isDeviceDropdownOpen" name="lucide:chevron-up" class="dropdown-arrow" />
-                <Icon v-else name="lucide:chevron-down" class="dropdown-arrow" />
-              </button>
-
-              <div class="dropdown-menu">
-                <button v-for="device in baseDeviceTypes" :key="device.id" class="dropdown-item"
-                  :class="{ 'is-selected': selectedDeviceType === device.id }"
-                  @click="selectedDeviceType = device.id; isDeviceDropdownOpen = false">
-                  <span class="device-info">
-                    <span class="device-name">{{ device.name }}</span>
-                    <span class="device-desc">{{ device.description }}</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 下载源选择器 -->
-          <div class="dropdown-container">
-            <label class="dropdown-label">下载源</label>
-            <div class="dropdown" :class="{ 'is-open': isSourceDropdownOpen }">
-              <button class="dropdown-trigger" @click="isSourceDropdownOpen = !isSourceDropdownOpen"
-                @blur="handleSourceDropdownBlur">
-                <span class="dropdown-content">
-                    <img
-                      v-if="isGithubSource(currentDownloadSource.id)"
-                      src="/icons/github-dark.png"
-                      class="source-icon github-light"
-                    >
-                    <img
-                      v-if="isGithubSource(currentDownloadSource.id)"
-                      src="/icons/github-light.png"
-                      class="source-icon github-dark"
-                    >
-                    <img
-                      v-else
-                      src="/icons/gitee.png"
-                      class="source-icon"
-                    >
-                  <span class="source-info">
-                    <span class="source-name">{{ currentDownloadSource.id }}</span>
-                    <span class="source-desc">{{ currentDownloadSource.description }}</span>
-                  </span>
-                </span>
-                <Icon v-if="isSourceDropdownOpen" name="lucide:chevron-up" class="dropdown-arrow" />
-                <Icon v-else name="lucide:chevron-down" class="dropdown-arrow" />
-              </button>
-
-              <div class="dropdown-menu">
-                <button v-for="source in downloadSources" :key="source.id" class="dropdown-item" :class="{
-                  'is-selected': selectedDownloadSource === source.id
-                }" @click="selectedDownloadSource = source.id; isSourceDropdownOpen = false">
-                    <img
-                      v-if="isGithubSource(source.id)"
-                      src="/icons/github-dark.png"
-                      class="source-icon github-light"
-                    >
-                    <img
-                      v-if="isGithubSource(source.id)"
-                      src="/icons/github-light.png"
-                      class="source-icon github-dark"
-                    >
-                    <img
-                      v-else
-                      src="/icons/gitee.png"
-                      class="source-icon"
-                    >
-                  <span class="source-info">
-                    <span class="source-name">{{ source.id }}</span>
-                    <span class="source-desc">{{ source.description }}</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
+        <label class="selector-label">下载源</label>
+        <div class="source-grid">
+          <button v-for="source in downloadSources" :key="source.id" class="source-btn"
+            :class="{ 'is-selected': selectedDownloadSource === source.id }"
+            @click="selectedDownloadSource = source.id">
+            <img v-if="isGithubSource(source.id)" src="/icons/github-dark.png" class="source-icon github-light">
+            <img v-if="isGithubSource(source.id)" src="/icons/github-light.png" class="source-icon github-dark">
+            <img v-else src="/icons/gitee.png" class="source-icon">
+            <span class="source-info">
+              <span class="source-name">{{ source.id }}</span>
+              <span class="source-desc">{{ source.description }}</span>
+            </span>
+          </button>
         </div>
       </div>
 
@@ -380,8 +177,8 @@ onMounted(() => {
       <div class="download-section">
         <h3>文件列表</h3>
 
-        <div v-if="filteredAssets && filteredAssets.length > 0" class="assets-list">
-          <div v-for="asset in filteredAssets" :key="asset.id" class="asset-item">
+        <div v-if="currentRelease.assets && currentRelease.assets.length > 0" class="assets-list">
+          <div v-for="asset in currentRelease.assets" :key="asset.id" class="asset-item">
             <div class="asset-info">
               <div class="asset-header">
                 <Icon name="octicon:package-16" />
@@ -412,8 +209,8 @@ onMounted(() => {
 
         <div v-else class="no-assets">
           <div class="no-assets-content">
-            <h4>暂无适用于 {{ currentDeviceType.name }} 的下载文件</h4>
-            <p>请尝试选择其他设备类型</p>
+            <h4>暂无下载文件</h4>
+            <p>请稍后重试</p>
           </div>
         </div>
 
@@ -482,8 +279,10 @@ onMounted(() => {
 }
 
 .error-icon {
-  font-size: 3rem;
-  color: var(--vp-c-danger-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vp-c-warning-1);
 }
 
 .error-content h3 {
@@ -493,18 +292,23 @@ onMounted(() => {
 }
 
 .retry-btn {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-text-1);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 16px;
+  background: var(--vp-c-brand-2);
+  color: var(--vp-c-white);
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: var(--vp-shadow-2);
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .retry-btn:hover {
-  background: var(--vp-c-brand-2);
+  background: var(--vp-c-brand-1);
+  box-shadow: var(--vp-shadow-3);
 }
 
 /* 版本信息头部 */
@@ -519,12 +323,21 @@ onMounted(() => {
   margin: 0 auto;
 }
 
+.title {
+  margin: 0.3em 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--vp-c-text-1);
+  transition: color var(--vp-t-color);
+}
+
 .release-title-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin: 22px auto;
+  margin-bottom: 22px;
 }
 
 .release-name {
@@ -542,7 +355,7 @@ onMounted(() => {
   color: var(--vp-c-text-1);
 }
 
-/* 下载选择器 */
+/* 下载源选择 */
 .download-selector {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
@@ -551,34 +364,25 @@ onMounted(() => {
   margin-bottom: 24px;
 }
 
-.selector-controls {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.dropdown-container {
-  position: relative;
-}
-
-.dropdown-label {
+.selector-label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: 1rem;
   font-weight: 600;
   color: var(--vp-c-text-1);
 }
 
-.dropdown {
-  position: relative;
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
 }
 
-.dropdown-trigger {
-  width: 100%;
+.source-btn {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
+  gap: 10px;
+  padding: 10px 12px;
   background: var(--vp-c-bg);
   border: 2px solid var(--vp-c-border);
   border-radius: 12px;
@@ -588,20 +392,14 @@ onMounted(() => {
   transition: all 0.2s ease;
 }
 
-.dropdown-trigger:hover,
-.dropdown.is-open .dropdown-trigger {
+.source-btn:hover {
+  border-color: var(--vp-c-brand-2);
+}
+
+.source-btn.is-selected {
   border-color: var(--vp-c-brand-1);
-}
-
-.dropdown.is-open .dropdown-trigger {
+  background: var(--vp-c-brand-soft);
   box-shadow: 0 0 0 3px var(--vp-c-brand-soft);
-}
-
-.dropdown-content {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex: 1;
 }
 
 .source-icon {
@@ -609,88 +407,35 @@ onMounted(() => {
   height: 24px;
   object-fit: cover;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
-[data-theme="dark"] img:where(.github-light, .light) {
+[data-theme="dark"] img.github-light {
   display: none;
 }
 
-[data-theme="light"] img:where(.github-dark, .dark) {
+[data-theme="light"] img.github-dark {
   display: none;
 }
 
-.device-info,
 .source-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  min-width: 0;
 }
 
-.device-name,
 .source-name {
   font-weight: 600;
   color: var(--vp-c-text-1);
   line-height: 1.6;
 }
 
-.device-desc,
 .source-desc {
   font-size: 0.75rem;
   color: var(--vp-c-text-2);
   line-height: 1.2;
-}
-
-.dropdown-arrow {
-  color: var(--vp-c-text-3);
-  font-size: 0.75rem;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  max-height: 300px;
-  overflow-y: auto;
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 12px;
-  box-shadow: var(--vp-shadow-3);
-  z-index: 50;
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  transition: all 0.2s ease;
-}
-
-.dropdown.is-open .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.dropdown-item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 8px 12px;
-  background: none;
-  border: none;
-  font-size: 0.875rem;
-  color: var(--vp-c-text-1);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.dropdown-item:hover {
-  background-color: var(--vp-c-default-soft);
-}
-
-.dropdown-item.is-selected {
-  background-color: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
 }
 
 /* 下载文件列表 */
@@ -876,8 +621,8 @@ onMounted(() => {
     padding: 20px;
   }
 
-  .selector-controls {
-    grid-template-columns: 1fr;
+  .source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .asset-item {

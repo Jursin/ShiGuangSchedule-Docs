@@ -9,6 +9,28 @@ aside: false
 externalLinkIcon: false
 ---
 
+## [v2.0.0](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v2.0.0) <Badge type="tip" text="2026-08-16" />
+### ✨ 新增功能 (Features)
+- 引入 MaterialKolor 动态配色并优化主题与 UI 细节
+### 🐛 Bug 修复 (Bug Fixes)
+- 优化 WebView 界面状态栏适配并实现软键盘自动避让
+### 💡 功能与体验优化 (Improvements)
+- 优化深浅模式切换的ui体验
+- 优化“学期结束”状态显示，将超出周数改为更精确的已结束天数
+### 🚀 性能与代码改进 (Improvements)
+- 迁移 Material 图标至本地矢量资源并移除相关依赖
+- 迁移离线资源初始化与分享缓存至 shared
+- 将通知/设置同步移至 shared 并简化 SyncManager
+- 优化同步管理与通知权限交互
+- 将 UI 迁移至 shared 模块以支持 KMP
+- 将 model 配置迁移到 shared
+- 将 proto 配置迁移到 shared
+- 迁移数据库层至 KMP 并升级 Room 3.0 Multiplatform
+- 迁移项目架构至 Kotlin Multiplatform (KMP)
+- 迁移 Git 实现至 KGIT 并优化仓库同步逻辑
+- 迁移依赖注入框架从 Hilt 至 Koin
+- 将数据层和工具类迁移至 shared 模块以支持 KMP
+
 ## [v1.2.5](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.5) <Badge type="tip" text="2026-07-13" />
 ### ✨ 新增功能 (Features)
 - 课表选择对话框支持快速新建课表
