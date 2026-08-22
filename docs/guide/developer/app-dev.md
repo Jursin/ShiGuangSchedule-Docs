@@ -7,125 +7,119 @@ createTime: 2026/03/04 20:22:50
 
 ## 环境要求
 
-- Android Studio Ladybug+
+- Android Studio
 - JDK 21
 - Android SDK
 
 ## 项目结构
 
+::: warning
+项目从 2.x 版本起迁移至 **Compose Multiplatform** 多平台框架，采用 KMP（Kotlin Multiplatform）架构。Gradle 包含三个模块（`androidApp`、`shared`、`desktopApp`），iOS 通过 Xcode 构建独立的 `iosApp` 项目：
+:::
+
 ::: file-tree
 
 - shiguangschedule
-  - app
-    - src
-      - **main** # 共用源码与资源
-        - java
-          - com.xingheyuzhuan.shiguangschedule
-            - **MainActivity.kt**
-            - **MyApplication.kt**
-            - **Navigation.kt**
-            - data/
-              - api/ # 网络请求（节假日、WebDAV）
-              - db/ # Room 数据库
-              - model/ # 数据模型
-              - repository/ # 数据仓库
-              - …
-            - service/ # 后台服务（课程提醒、勿扰模式）
-            - tool/ # 工具类（ICS 导出、Git 更新）
-            - ui/
-              - components/ # 通用组件（ImageCropper, ColorPicker...）
-              - schedule/ # 课表页面
-              - today/ # 今日课表
-              - settings/ # 设置页面
-              - schoolselection/ # 教务导入
-              - theme/ # 主题配色
-              - …
-            - widget/ # 桌面小组件
-            - …
-        - res/
-        - assets/ # JS 适配脚本
-        - proto/ # Protobuf 定义
-        - …
-      - **dev** # 开发版专属（红色图标）
-        - res/
-          - values/
-            - ic_launcher_background.xml
-      - **prod** # 正式版专属（蓝色图标）
-        - …
+  - **androidApp/** # Android 平台入口
+    - src/main/kotlin/com/xingheyuzhuan/shiguangschedule
+      - **MainActivity.kt** — Compose 主入口，EdgeToEdge，Koin Application
+      - **MyApplication.kt** — Koin Application 初始化
+      - data/sync/ # Android 平台数据同步实现
+      - service/ # 后台服务（课程提醒、勿扰模式）
+      - widget/ # 桌面小组件
     - build.gradle.kts
-    - proguard-rules.pro
-    - …
+  - **shared/** # 跨平台共享模块（核心业务逻辑）
+    - src/commonMain/kotlin/com/xingheyuzhuan/shiguangschedule
+      - **App.kt** — 共享 Compose 入口
+      - **Navigation.kt** — Navigation3 导航定义
+      - data/ # 数据层
+        - api/ # 网络请求（节假日、WebDAV）
+        - db/ # Room 数据库（MainAppDatabase）
+        - di/ # Koin 依赖注入模块
+        - model/ # 数据模型
+        - repository/ # 数据仓库
+        - sync/ # 数据同步逻辑
+      - navigation/ # 导航路由定义
+      - tool/ # 工具类（ICS 导出、日历账户管理、加密、Zip、更新等）
+      - ui/ # UI 层
+        - components/ # 通用组件（ImageCropper, ColorPicker...）
+        - schedule/ # 课表页面
+        - today/ # 今日课表
+        - settings/ # 设置页面
+        - schoolselection/ # 教务导入
+        - theme/ # 主题配色
+    - src/androidMain/ # Android 平台特定代码
+    - src/jvmMain/ # Desktop (JVM) 平台特定代码
+    - src/iosMain/ # iOS 平台特定代码
+    - assets/offline_repo/ # 离线适配资源
+    - schemas/ # Room 数据库 Schema 导出
+    - build.gradle.kts
+  - **desktopApp/** # Desktop (JVM) 平台入口
+    - build.gradle.kts
+  - **iosApp/** # iOS 平台入口（Xcode 项目）
+    - iosApp.xcodeproj/
+    - iosApp/
   - gradle/
-    - **libs.versions.toml** # 版本目录
+    - **libs.versions.toml** # 版本目录（统一管理依赖版本）
     - wrapper/
-    - …
-  - build.gradle.kts
-  - settings.gradle.kts
+  - build.gradle.kts # 根项目插件声明
+  - settings.gradle.kts # 模块包含配置
   - gradle.properties
-  - …
 
 :::
 
 ## 应用入口
 
-- `MainActivity.kt` — Compose 主入口，EdgeToEdge，Navigation3 导航
-- `MyApplication.kt` — Hilt Application，WorkManager 初始化
+- `androidApp/MainActivity.kt` — Android 平台入口，EdgeToEdge，Koin Application
+- `shared/commonMain/App.kt` — 共享 Compose 入口，所有平台共用的 UI 与逻辑
+- `shared/commonMain/Navigation.kt` — Navigation3 导航定义
+- `desktopApp/` — Desktop (JVM) 平台入口
+- `iosApp/` — iOS 平台入口（通过 Xcode 构建，调用 shared 模块的 iOS Framework）
 
-## 核心依赖
+## 跨平台源集
 
-| 库 | 用途 |
-|---|------|
-| Jetpack Compose + Material3 | UI 框架 |
-| Navigation3 | 声明式导航 |
-| Hilt | 依赖注入 |
-| Room | 本地数据库 |
-| DataStore | 键值存储 |
-| Ktor | 网络请求（节假日 API、WebDAV） |
-| Coil | 图片加载 |
-| Wire | Protobuf 序列化（小组件数据） |
-| JGit | Git 仓库操作（适配脚本更新） |
-| aboutLibraries | 开源许可证展示 |
-| WorkManager | 后台任务（课程提醒、数据同步） |
+`shared` 模块按 KMP 约定划分源集：
 
-## 构建变体
+| 源集 | 目标平台 | 说明 |
+|------|----------|------|
+| `commonMain` | 全平台 | 共享业务逻辑、UI、数据层 |
+| `androidMain` | Android | Android 特定实现（SQLite Framework、Ktor CIO） |
+| `jvmMain` | Desktop (JVM) | Desktop 特定实现（SQLite Bundled、Ktor CIO） |
+| `iosMain` | iOS | iOS 特定实现（SQLite Framework、Ktor Darwin） |
 
-项目通过 **productFlavors** 分为开发版（`dev`）和正式版（`prod`）两个变体：
+## 开发者模式
 
-| 特性 | dev | prod |
-|------|-----|------|
-| 包名后缀 | `.dev` | 无 |
-| 版本后缀 | `-dev` | 无 |
-| 应用图标 | 红色 | 蓝色 |
-| 基准灯塔标签验证 | 关闭 | 开启 |
-| 自定义/私有仓库 | 显示 | 隐藏 |
-| DevTools 选项 | 显示 | 隐藏 |
-| 地址栏切换按钮 | 显示 | 隐藏 |
+从 2.x 版本开始，项目不再区分正式版本和开发者版本。开发者功能通过在**更多**页面**点击应用图标 5 次**启用。
+
+## 构建命令
 
 ```bash
-# 开发版 Debug
-./gradlew :app:assembleDevDebug
+# Android Debug
+./gradlew :androidApp:assembleDebug
 
-# 开发版 Release
-./gradlew :app:assembleDevRelease
+# Android Release
+./gradlew :androidApp:assembleRelease
 
-# 正式版 Debug
-./gradlew :app:assembleProdDebug
+# Desktop (JVM) 运行
+./gradlew :desktopApp:run
 
-# 正式版 Release
-./gradlew :app:assembleProdRelease
+# Desktop (JVM) 打包
+./gradlew :desktopApp:package
 ```
 
 ## ABI 分包
 
-构建产物按 CPU 架构分包：
+Android 构建产物按 CPU 架构分包：
 
 - `arm64-v8a`
 - `armeabi-v7a`
 - `x86_64`
 
+APK 命名格式：`shiguangschedule-v{version}-{abi}-{buildType}.apk`
+
 ## 签名文件配置
 
-正式版发布前需在 `app/build.gradle.kts` 中配置签名信息。项目当前 release 构建类型默认使用 debug 签名，发布时应替换为正式签名：
+正式版发布前需在 `androidApp/build.gradle.kts` 中配置签名信息。项目当前 release 构建类型默认使用 debug 签名，发布时应替换为正式签名：
 
 ```kotlin
 android {
@@ -160,11 +154,11 @@ android {
 ## 测试
 
 ```bash
-# 运行单元测试
-./gradlew :app:testDevDebug
+# 运行 shared 模块单元测试
+./gradlew :shared:desktopTest
 
-# 运行插桩测试
-./gradlew :app:connectedDevDebugAndroidTest
+# 运行 Android 插桩测试
+./gradlew :androidApp:connectedDebugAndroidTest
 ```
 
 ## 参与贡献
