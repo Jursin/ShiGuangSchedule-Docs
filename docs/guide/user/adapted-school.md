@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/08/23 09:08:49`
+> 本页面由脚本自动同步，最后更新于：`2026/08/24 09:06:56`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -120,6 +120,7 @@ createTime: 2026/03/04 20:21:35
 ### Q
 - [齐齐哈尔大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/QQHRU/adapters.yaml)
 - [齐齐哈尔工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/QQHRIT/adapters.yaml)
+- [青岛黄海学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/QDHHC/adapters.yaml)
 - [青岛理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/QUT/adapters.yaml)
 - [青岛农业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/QAU/adapters.yaml)
 ### S
