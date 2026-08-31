@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/08/28 17:27:45`
+> 本页面由脚本自动同步，最后更新于：`2026/08/31 11:33:33`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -22,6 +22,7 @@ createTime: 2026/03/04 20:21:35
 ## <Icon name="material-symbols:school" /> 具体高校列表
 
 ### A
+- [安徽财经大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/AUFE/adapters.yaml)
 - [安徽中医药高等专科学校](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/AHZYYGZ/adapters.yaml)
 ### B
 - [北方工业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NCUT/adapters.yaml)
@@ -36,6 +37,7 @@ createTime: 2026/03/04 20:21:35
 - [重庆城市科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQCST/adapters.yaml)
 - [重庆大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQU/adapters.yaml)
 - [重庆电子科技职业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQUET/adapters.yaml)
+- [重庆工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQIE/adapters.yaml)
 - [重庆化工职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQCIVC/adapters.yaml)
 - [重庆交通大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQJTU/adapters.yaml)
 - [重庆理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQUT/adapters.yaml)
@@ -54,6 +56,7 @@ createTime: 2026/03/04 20:21:35
 ### F
 - [佛山大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/FOSU/adapters.yaml)
 - [福建船政交通职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/FJCPC/adapters.yaml)
+- [福建农林大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/FAFU/adapters.yaml)
 ### G
 - [甘肃财贸职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GSCMXY/adapters.yaml)
 - [甘肃医学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GSMC/adapters.yaml)
@@ -63,6 +66,7 @@ createTime: 2026/03/04 20:21:35
 - [广东轻工职业技术大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDIPU/adapters.yaml)
 - [广东药科大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDPU/adapters.yaml)
 - [广西电力职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GXDLXY/adapters.yaml)
+- [广州航海学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GZMTU/adapters.yaml)
 - [广州松田职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GZST/adapters.yaml)
 - [贵州大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GZU/adapters.yaml)
 - [桂林信息科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GUIT/adapters.yaml)
@@ -80,6 +84,7 @@ createTime: 2026/03/04 20:21:35
 - [呼和浩特民族学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/IMNC/adapters.yaml)
 - [湖北汽车工业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HUAT/adapters.yaml)
 - [湖北医药学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HBMU/adapters.yaml)
+- [湖南工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HNIE/adapters.yaml)
 - [湖南科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HNUST/adapters.yaml)
 - [湖南科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HUSE/adapters.yaml)
 - [湖南商务职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HNVCC/adapters.yaml)
@@ -108,6 +113,7 @@ createTime: 2026/03/04 20:21:35
 - [喀什大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/KSU/adapters.yaml)
 ### L
 - [兰州理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/LUT/adapters.yaml)
+- [辽宁大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/LNU/adapters.yaml)
 - [辽宁科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/USTL/adapters.yaml)
 ### M
 - [茂名职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/MMPT/adapters.yaml)
@@ -117,6 +123,7 @@ createTime: 2026/03/04 20:21:35
 - [南京工业职业技术大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NIIT/adapters.yaml)
 - [南京林业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NJFU/adapters.yaml)
 - [南京师范大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NJNU/adapters.yaml)
+- [南京邮电大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NJUPT/adapters.yaml)
 - [南通大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NTU/adapters.yaml)
 - [内蒙古大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/IMU/adapters.yaml)
 - [内蒙古工业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/IMUT/adapters.yaml)
@@ -147,6 +154,7 @@ createTime: 2026/03/04 20:21:35
 - [塔里木大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TARU/adapters.yaml)
 - [泰山学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TSU/adapters.yaml)
 - [天津城建大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TCU/adapters.yaml)
+- [天津科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TUST/adapters.yaml)
 - [天津农学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TJAU/adapters.yaml)
 - [同济大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TONGJI/adapters.yaml)
 - [铜仁学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GZTRC/adapters.yaml)
@@ -163,6 +171,7 @@ createTime: 2026/03/04 20:21:35
 - [西安理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XAUT/adapters.yaml)
 - [西安文理学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XAWL/adapters.yaml)
 - [西北工业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NWPU/adapters.yaml)
+- [西南大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/SWU/adapters.yaml)
 - [西南交通大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/SWJTU/adapters.yaml)
 - [新疆工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XJIE/adapters.yaml)
 - [新疆政法学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XJZFU/adapters.yaml)
