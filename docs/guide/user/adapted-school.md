@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/09/01 11:31:13`
+> 本页面由脚本自动同步，最后更新于：`2026/09/02 10:49:15`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -66,6 +66,7 @@ createTime: 2026/03/04 20:21:35
 - [广东海洋大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDOU/adapters.yaml)
 - [广东技术师范大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GPNU/adapters.yaml)
 - [广东科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDUST/adapters.yaml)
+- [广东科学技术职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDIT/adapters.yaml)
 - [广东轻工职业技术大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDIPU/adapters.yaml)
 - [广东药科大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDPU/adapters.yaml)
 - [广西电力职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GXDLXY/adapters.yaml)
@@ -180,6 +181,7 @@ createTime: 2026/03/04 20:21:35
 ### X
 - [厦门城市职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XMCU/adapters.yaml)
 - [西安工业大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XATU/adapters.yaml)
+- [西安交通大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XJTU/adapters.yaml)
 - [西安科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XUST/adapters.yaml)
 - [西安理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XAUT/adapters.yaml)
 - [西安文理学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/XAWL/adapters.yaml)
