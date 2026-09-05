@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/09/04 10:52:43`
+> 本页面由脚本自动同步，最后更新于：`2026/09/05 10:54:39`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -48,6 +48,7 @@ createTime: 2026/03/04 20:21:35
 - [长江大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/YANGTZEU/adapters.yaml)
 ### D
 - [大连大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/DLU/adapters.yaml)
+- [大连工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/DLUTCI/adapters.yaml)
 - [大连海事大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/DLMU/adapters.yaml)
 - [电子科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/UESTC/adapters.yaml)
 - [东北大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NEU/adapters.yaml)
@@ -125,6 +126,7 @@ createTime: 2026/03/04 20:21:35
 ### K
 - [喀什大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/KSU/adapters.yaml)
 ### L
+- [兰州大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/LZU/adapters.yaml)
 - [兰州理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/LUT/adapters.yaml)
 - [辽宁大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/LNU/adapters.yaml)
 - [辽宁科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/USTL/adapters.yaml)
