@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/09/14 11:19:28`
+> 本页面由脚本自动同步，最后更新于：`2026/09/15 11:20:57`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -118,6 +118,7 @@ createTime: 2026/03/04 20:21:35
 - [华侨大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HQU/adapters.yaml)
 - [华中科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HUST/adapters.yaml)
 - [怀化学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HHTC/adapters.yaml)
+- [怀化职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HHVTC/adapters.yaml)
 - [淮北理工学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HBLGXY/adapters.yaml)
 - [淮南师范学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/HNNU/adapters.yaml)
 ### J
