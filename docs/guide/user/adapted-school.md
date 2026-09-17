@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/09/16 11:17:05`
+> 本页面由脚本自动同步，最后更新于：`2026/09/17 11:22:59`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -47,6 +47,7 @@ createTime: 2026/03/04 20:21:35
 - [重庆航天职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQEPC/adapters.yaml)
 - [重庆化工职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQCIVC/adapters.yaml)
 - [重庆交通大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQJTU/adapters.yaml)
+- [重庆科技大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQUST/adapters.yaml)
 - [重庆理工大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQUT/adapters.yaml)
 - [重庆人文科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CQRK/adapters.yaml)
 - [长春工程学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CCIT/adapters.yaml)
@@ -129,6 +130,7 @@ createTime: 2026/03/04 20:21:35
 - [济源职业技术学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/JYVTC/adapters.yaml)
 - [暨南大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/JNU/adapters.yaml)
 - [江苏大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/UJS/adapters.yaml)
+- [江苏电子信息职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/JSEI/adapters.yaml)
 - [江苏旅游职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/JSTC/adapters.yaml)
 - [江苏师范大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/JSNU/adapters.yaml)
 - [江西飞行学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/JXFU/adapters.yaml)
