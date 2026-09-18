@@ -13,15 +13,20 @@ const isLoading = ref(false)
 const hasError = ref(false)
 const errorMessage = ref('')
 const selectedDownloadSource = ref<DownloadSourceId>('gitee.com')
-const copiedShaAssetId = ref<number | null>(null)
+const isUsingGiteeFallback = ref(false)
+const copiedShaAssetId = ref<string | number | null>(null)
 let copiedShaTimer: number | undefined
 
-const downloadSources: DownloadSource[] = [
+const githubDownloadSources: DownloadSource[] = [
   { id: 'gitee.com', description: 'Gitee 镜像源' },
   { id: 'github.com', description: 'GitHub 官方源' },
   { id: 'gh.dpik.top', description: 'GitHub 镜像源' },
   { id: 'wget.la', description: 'GitHub 镜像源' }
 ]
+
+const downloadSources = computed(() =>
+  isUsingGiteeFallback.value ? githubDownloadSources.slice(0, 1) : githubDownloadSources
+)
 
 function isGithubSource(sourceId: DownloadSourceId) {
   return sourceId === 'github.com' || sourceId === 'wget.la' || sourceId === 'gh.dpik.top'
@@ -37,6 +42,7 @@ async function fetchLatestRelease() {
   isLoading.value = true
   hasError.value = false
   errorMessage.value = ''
+  isUsingGiteeFallback.value = false
 
   try {
     const controller = new AbortController()
@@ -63,9 +69,40 @@ async function fetchLatestRelease() {
 
     releases.value = data
   } catch (error) {
-    console.error('获取最新版本失败:', error)
-    hasError.value = true
-    errorMessage.value = '可能是 GitHub API 访问较慢或服务异常，请稍后重试'
+    console.warn('GitHub API 获取失败，尝试使用 Gitee API:', error)
+
+    try {
+      const response = await fetch(
+        'https://gitee.com/api/v5/repos/XingHeYuZhuan-gh/shiguangschedule/releases/latest'
+      )
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
+
+      const release = await response.json()
+      if (!release || typeof release !== 'object') {
+        throw new Error('latest release 响应为空')
+      }
+
+      releases.value = [{
+        ...release,
+        published_at: release.published_at || release.created_at,
+        assets: (release.assets || [])
+          .filter((asset: Record<string, unknown>) =>
+            !String(asset.browser_download_url || '').includes('/archive/refs/tags/')
+          )
+          .map((asset: Record<string, unknown>) => ({
+            ...asset,
+            id: asset.id || asset.name
+          }))
+      }]
+      isUsingGiteeFallback.value = true
+      selectedDownloadSource.value = 'gitee.com'
+    } catch (giteeError) {
+      console.error('GitHub 和 Gitee API 获取均失败:', giteeError)
+      hasError.value = true
+      errorMessage.value = '可能是 GitHub 或 Gitee API 访问较慢或服务异常，请稍后重试'
+    }
   } finally {
     isLoading.value = false
   }
@@ -175,7 +212,7 @@ onMounted(() => {
 
       <!-- 下载文件列表 -->
       <div class="download-section">
-        <h3>文件列表</h3>
+        <h3 style="margin-bottom: 1rem; font-weight: 600;">文件列表</h3>
 
         <div v-if="currentRelease.assets && currentRelease.assets.length > 0" class="assets-list">
           <div v-for="asset in currentRelease.assets" :key="asset.id" class="asset-item">
@@ -185,9 +222,9 @@ onMounted(() => {
                 <h4 class="asset-name">{{ asset.name }}</h4>
               </div>
               <div class="asset-meta">
-                <span class="download-count">{{ asset.download_count.toLocaleString() }} 次下载</span>
-                <span class="asset-size">{{ formatFileSize(asset.size) }}</span>
-                <span class="asset-sha-wrapper">
+                <span v-if="asset.download_count != null" class="download-count">{{ asset.download_count.toLocaleString() }} 次下载</span>
+                <span v-if="asset.size != null" class="asset-size">{{ formatFileSize(asset.size) }}</span>
+                <span v-if="getAssetSha256(asset) !== '未提供'" class="asset-sha-wrapper">
                   <span class="asset-sha" :title="`${getAssetSha256(asset)}`">sha256:{{ getAssetSha256(asset) }}</span>
                   <button type="button" class="sha-copy-button" @click="copyAssetSha256(asset)">
                     <Icon v-if="copiedShaAssetId === asset.id" name="octicon:check-16" color="#1a7f37" />
@@ -215,7 +252,12 @@ onMounted(() => {
         </div>
 
         <div class="view-release-history">
-          <a href="https://github.com/XingHeYuZhuan/shiguangschedule/releases" target="_blank" rel="noopener noreferrer">
+          <a
+            :href="isUsingGiteeFallback
+              ? 'https://gitee.com/XingHeYuZhuan-gh/shiguangschedule/releases'
+              : 'https://github.com/XingHeYuZhuan/shiguangschedule/releases'"
+            target="_blank"
+            rel="noopener noreferrer">
             查看历史版本
           </a>
         </div>

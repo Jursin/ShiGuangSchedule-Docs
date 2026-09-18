@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "ShiGuangSchedule Documentation",
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@12.4.2",
   "author": "Jursin <jursin@126.com>",
   "license": "MIT",
   "scripts": {
