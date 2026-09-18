@@ -218,7 +218,7 @@ onMounted(() => {
           <div v-for="asset in currentRelease.assets" :key="asset.id" class="asset-item">
             <div class="asset-info">
               <div class="asset-header">
-                <Icon name="octicon:package-16" />
+                <Icon name="octicon:package-16" class="asset-icon" size="1.4em" />
                 <h4 class="asset-name">{{ asset.name }}</h4>
               </div>
               <div class="asset-meta">
@@ -521,6 +521,10 @@ onMounted(() => {
   gap: 4px;
 }
 
+.asset-icon {
+  flex-shrink: 0;
+}
+
 .asset-name {
   margin: 0;
   font-size: 1.25rem;
@@ -677,6 +681,7 @@ onMounted(() => {
     flex-direction: row;
     align-items: center;
     gap: 8px;
+    font-size: 1.25rem;
   }
 
   .asset-meta {
