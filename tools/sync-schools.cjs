@@ -2,9 +2,9 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const SOURCE_URL = "https://raw.githubusercontent.com/XingHeYuZhuan/shiguang_warehouse/main/index/root_index.yaml";
+const SOURCE_URL = "https://raw.githubusercontent.com/ShiGuangSchedule/shiguang_warehouse/main/index/root_index.yaml";
 const TARGET_FILE = path.join(__dirname, '..', 'docs', 'guide', 'user', 'adapted-school.md');
-const REPO_SRC_URL = `https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources`;
+const REPO_SRC_URL = `https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources`;
 const TIMESTAMP_PLACEHOLDER = '__TIMESTAMP__';
 
 function parseYaml(yamlStr) {
@@ -84,7 +84,7 @@ function fetchAndGenerate() {
             const timestamp = `${now.getFullYear()}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
 
             let md = `---\ntitle: 已适配学校\ncreateTime: 2026/03/04 20:21:35\n---\n\n`;
-            md += `> 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)\n`;
+            md += `> 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)\n`;
             md += `>\n`;
             md += `> 本页面由脚本自动同步，最后更新于：\`${timestamp}\`\n\n`;
 

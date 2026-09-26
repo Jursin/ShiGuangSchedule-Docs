@@ -2,9 +2,9 @@
 
 ## 相关仓库
 
-- 应用仓库：[XingHeYuZhuan/shiguangschedule](https://github.com/XingHeYuZhuan/shiguangschedule)
-- 浏览器测试插件仓库：[XingHeYuZhuan/shiguang_Tester](https://github.com/XingHeYuZhuan/shiguang_Tester)
-- 适配脚本仓库：[XingHeYuZhuan/shiguang_warehouse](https://github.com/XingHeYuZhuan/shiguang_warehouse)
+- 应用仓库：[ShiGuangSchedule/shiguangschedule](https://github.com/ShiGuangSchedule/shiguangschedule)
+- 浏览器测试插件仓库：[ShiGuangSchedule/shiguang_Tester](https://github.com/ShiGuangSchedule/shiguang_Tester)
+- 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 
 ## 开发
 

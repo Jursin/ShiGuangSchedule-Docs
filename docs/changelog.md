@@ -9,7 +9,7 @@ aside: false
 externalLinkIcon: false
 ---
 
-## [v2.0.0](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v2.0.0) <Badge type="tip" text="2026-08-16" />
+## [v2.0.0](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v2.0.0) <Badge type="tip" text="2026-08-16" />
 ### ✨ 新增功能 (Features)
 - 引入 MaterialKolor 动态配色并优化主题与 UI 细节
 ### 🐛 Bug 修复 (Bug Fixes)
@@ -31,7 +31,7 @@ externalLinkIcon: false
 - 迁移依赖注入框架从 Hilt 至 Koin
 - 将数据层和工具类迁移至 shared 模块以支持 KMP
 
-## [v1.2.5](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.5) <Badge type="tip" text="2026-07-13" />
+## [v1.2.5](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.2.5) <Badge type="tip" text="2026-07-13" />
 ### ✨ 新增功能 (Features)
 - 课表选择对话框支持快速新建课表
 - 点击课程块展示详情弹窗
@@ -47,7 +47,7 @@ externalLinkIcon: false
 ### 🚀 性能与代码改进 (Improvements)
 - 移除课程块中的多课程重叠堆叠图标及相关逻辑
 
-## [v1.2.4](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.4) <Badge type="tip" text="2026-06-22" />
+## [v1.2.4](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.2.4) <Badge type="tip" text="2026-06-22" />
 ### ✨ 新增功能 (Features)
 - 支持课表样式备份与恢复并优化备份模块容错性
 - 实现数据备份与恢复功能，支持 WebDAV 云同步及本地文件导出
@@ -61,7 +61,7 @@ externalLinkIcon: false
 - 提升 ScheduleGrid 滚动状态控制并优化底部导航栏显示逻辑
 - 优化时间段管理逻辑并增加时间冲突校验
 
-## [v1.2.3](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.3) <Badge type="tip" text="2026-05-20" />
+## [v1.2.3](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.2.3) <Badge type="tip" text="2026-05-20" />
 
 ### ✨ 新增功能 (Features)
 - 支持将课表一键同步至系统日历
@@ -69,10 +69,10 @@ externalLinkIcon: false
 ### 💡 功能与体验优化 (Improvements)
 - 优化课表合并块视觉表现，支持局部非本周课程视觉降级效果
 - 优化 RGB 输入框的文本输入逻辑与交互体验
-- 去除 WebView 强制加入的 X-Requested-With 请求头 ([#83](https://github.com/XingHeYuZhuan/shiguangschedule/pull/83))
-- 课表页面右上角添加快捷切换课表按钮 ([#79](https://github.com/XingHeYuZhuan/shiguangschedule/pull/79))
+- 去除 WebView 强制加入的 X-Requested-With 请求头 ([#83](https://github.com/ShiGuangSchedule/shiguangschedule/pull/83))
+- 课表页面右上角添加快捷切换课表按钮 ([#79](https://github.com/ShiGuangSchedule/shiguangschedule/pull/79))
 
-## [v1.2.2](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.2) <Badge type="tip" text="2026-04-19" />
+## [v1.2.2](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.2.2) <Badge type="tip" text="2026-04-19" />
 
 ### ✨ 新增功能 (Features)
 - 支持在课程中添加备注信息
@@ -86,14 +86,14 @@ externalLinkIcon: false
 - 优化课程导入逻辑，实现同名课程自动分配相同颜色
 - 新增主题设置功能并支持自定义主色调
 - 新增启动页设置
-- 优化课程冲突逻辑，更换非本周课程视觉提示 ([#71](https://github.com/XingHeYuZhuan/shiguangschedule/pull/71))
+- 优化课程冲突逻辑，更换非本周课程视觉提示 ([#71](https://github.com/ShiGuangSchedule/shiguangschedule/pull/71))
 - 优化非本周课程显示
 - 为滚动选择器添加动画效果
 ### 🚀 性能与代码改进 (Improvements)
 - 迁移导航框架至 Navigation 3 并重构页面路由机制
 - 将样式设置界面的 UI 组件提取到独立文件便于维护
 
-## [v1.2.1](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.2.1) <Badge type="tip" text="2026-03-27" />
+## [v1.2.1](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.2.1) <Badge type="tip" text="2026-03-27" />
 
 ### ✨ 新增功能 (Features)
 - 引入学校访问历史记录并优化列表索引交互
@@ -132,7 +132,7 @@ externalLinkIcon: false
 ### 🚧 其他提交 (Other Commits)
 - 壁纸缩放裁剪功能
 
-## [v1.1.13](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.1.13) <Badge type="tip" text="2026-02-03" />
+## [v1.1.13](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.1.13) <Badge type="tip" text="2026-02-03" />
 ### ✨ 新增功能 (Features)
 - 新增快捷操作页面与基于日期快速删除课程功能
 ### 🐛 Bug 修复 (Bug Fixes)
@@ -142,7 +142,7 @@ externalLinkIcon: false
 - 样式页面添加网格线隐藏开关
 - 优化课表页面加载逻辑，使切换课程更加平滑
 
-## [v1.1.12](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.1.12) <Badge type="tip" text="2026-01-16" />
+## [v1.1.12](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.1.12) <Badge type="tip" text="2026-01-16" />
 ### ✨ 新增功能 (Features)
 - 重构小组件底层支持课程颜色同步,今日课程支持课程颜色同步
 - 个性化定制你的课表页面,新增个性化配置编辑页面
@@ -157,7 +157,7 @@ externalLinkIcon: false
 ### 🚀 性能与代码改进 (Improvements)
 - 重构课表底层为"真日历"模式，实现无限滚动和数据加载优化
 
-## [v1.1.11](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.1.11) <Badge type="tip" text="2025-11-10" />
+## [v1.1.11](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.1.11) <Badge type="tip" text="2025-11-10" />
 ### ✨ 新增功能 (Features)
 - 添加英语和繁体中文的翻译
 - 添加多语言支持依赖与模板
@@ -171,7 +171,7 @@ externalLinkIcon: false
 - 文件导入导出优化,教务导入逻辑优化
 - 为小部件添加自适应效果以适配更多屏幕
 
-## [v1.1.10](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.1.10) <Badge type="tip" text="2025-10-20" />
+## [v1.1.10](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.1.10) <Badge type="tip" text="2025-10-20" />
 
 ::: warning 重要提示
 教务适配数据结构重构，如果是旧版本通过安装包升级需要在`我的-更多-更新教务适配仓库`更新新的适配数据！旧版本已经不可以使用更新教务适配仓库选项了，因为更新的数据无法解析。
@@ -196,7 +196,7 @@ externalLinkIcon: false
 - improve：新增ITDONG镜像库(三网优化)
 - ci :修复问题
 
-## [v1.0.8](https://github.com/XingHeYuZhuan/shiguangschedule/releases/tag/v1.0.8) <Badge type="tip" text="2025-10-11" />
+## [v1.0.8](https://github.com/ShiGuangSchedule/shiguangschedule/releases/tag/v1.0.8) <Badge type="tip" text="2025-10-11" />
 ### 🚧 其他提交 (Other Commits)
 - 添加发布构建
 - 关闭开发者版本仓库检查行为,添加开发者DevTools调试选项

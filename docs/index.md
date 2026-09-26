@@ -12,7 +12,7 @@ config:
         - theme: brand
           text: Github 仓库
           icon: fa-brands:github
-          link: https://github.com/XingHeYuZhuan/shiguangschedule
+          link: https://github.com/ShiGuangSchedule/shiguangschedule
         - theme: alt
           text: 阅读文档
           icon: lucide:list-start

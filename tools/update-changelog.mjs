@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const CHANGELOG_PATH = resolve(__dirname, '../docs/changelog.md')
-const REPO = 'XingHeYuZhuan/shiguangschedule'
+const REPO = 'ShiGuangSchedule/shiguangschedule'
 
 /* 获取 changelog 中最新的版本号 */
 function getLatestVersion(content) {

@@ -4,12 +4,12 @@ import { VPIcon, VPLink } from 'vuepress-theme-plume/client'
 
 <template>
   <div class="aside-nav-wrapper">
-    <VPLink class="link" no-icon href="https://github.com/XingHeYuZhuan/shiguangschedule">
+    <VPLink class="link" no-icon href="https://github.com/ShiGuangSchedule/shiguangschedule">
       <VPIcon name="tabler:star" />
       <span class="link-text">在 GitHub 上 Star</span>
       <span class="vpi-arrow-right" />
     </VPLink>
-    <VPLink class="link" no-icon href="https://github.com/XingHeYuZhuan/shiguangschedule/issues/new/choose">
+    <VPLink class="link" no-icon href="https://github.com/ShiGuangSchedule/shiguangschedule/issues/new/choose">
       <VPIcon name="octicon:issue-opened-16" />
       <span class="link-text">遇到问题？</span>
       <span class="vpi-arrow-right" />

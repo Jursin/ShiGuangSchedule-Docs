@@ -163,6 +163,6 @@ android {
 
 ## 参与贡献
 
-- [Fork 仓库](https://github.com/XingHeYuZhuan/shiguangschedule/fork)
+- [Fork 仓库](https://github.com/ShiGuangSchedule/shiguangschedule/fork)
 - 提交 PR 到 `dev` 分支（`main` 分支已开启分支保护）
-- [提交 Issue](https://github.com/XingHeYuZhuan/shiguangschedule/issues/new/choose)
+- [提交 Issue](https://github.com/ShiGuangSchedule/shiguangschedule/issues/new/choose)

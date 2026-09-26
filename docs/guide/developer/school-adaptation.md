@@ -11,14 +11,14 @@ createTime: 2026/03/04 20:23:00
 
 1. **Alpha** 阶段
 
-   - 使用 [浏览器插件测试工具](https://github.com/XingHeYuZhuan/shiguang_Tester) 开发你的第一个版本的适配代码
+   - 使用 [浏览器插件测试工具](https://github.com/ShiGuangSchedule/shiguang_Tester) 开发你的第一个版本的适配代码
    - 对插件导出的 `json` 数据进行检查，确认没有问题后就可以进入下一个阶段
 
 2. **Beta**阶段
 
-   [详细适配指南参阅 **XingHeYuZhuan/shiguang_warehouse**](https://github.com/XingHeYuZhuan/shiguang_warehouse){.readmore}
+   [详细适配指南参阅 **ShiGuangSchedule/shiguang_warehouse**](https://github.com/ShiGuangSchedule/shiguang_warehouse){.readmore}
 
-   - [Fork 适配代码仓库](https://github.com/XingHeYuZhuan/shiguang_warehouse/fork)并建立自己的分支，建议在 `resources/GLOBAL_TOOLS/test.js` 里放置适配测试代码，应用定义这个位置作为适配占位符，用于在不更新索引的情况下测试适配代码
+   - [Fork 适配代码仓库](https://github.com/ShiGuangSchedule/shiguang_warehouse/fork)并建立自己的分支，建议在 `resources/GLOBAL_TOOLS/test.js` 里放置适配测试代码，应用定义这个位置作为适配占位符，用于在不更新索引的情况下测试适配代码
      ::: note
      - 本仓库带有 `lighthouse` 标签，已在应用开发者模式中关闭检查逻辑，请开发者对使用的仓库链接负责。
      - 注意提交 PR 请不要把测试的 `test.js` 也提交上去！
@@ -41,7 +41,7 @@ createTime: 2026/03/04 20:23:00
    - 在 `index/root_index.yaml` 文件中登记
    - 在 `resources` 目录创建学校文件夹
    - 创建 `adapters.yaml` 和适配脚本
-   - 完成 Beta 阶段适配验证，确认没有问题后提交 [Pull Request](https://github.com/XingHeYuZhuan/shiguang_warehouse/pulls) 到适配代码仓库等待合并
+   - 完成 Beta 阶段适配验证，确认没有问题后提交 [Pull Request](https://github.com/ShiGuangSchedule/shiguang_warehouse/pulls) 到适配代码仓库等待合并
 
      ::: important
      - 为避免代码出现问题，`main` 分支启用分支保护，需要先合并到 `pending` 分支等待分支同步
@@ -165,8 +165,8 @@ createTime: 2026/03/04 20:23:00
 ::::
 
 ::: tip
-- [源代码定义位置](https://github.com/XingHeYuZhuan/shiguangschedule/blob/main/app/src/main/java/com/xingheyuzhuan/shiguangschedule/data/repository/CourseImportExport.kt)
-- [测试 js 代码](https://github.com/XingHeYuZhuan/shiguang_Tester/blob/main/CourseImporterTestTool/school.js)
+- [源代码定义位置](https://github.com/ShiGuangSchedule/shiguangschedule/blob/main/app/src/main/java/com/ShiGuangSchedule/shiguangschedule/data/repository/CourseImportExport.kt)
+- [测试 js 代码](https://github.com/ShiGuangSchedule/shiguang_Tester/blob/main/CourseImporterTestTool/school.js)
 :::
 
 ## Android 桥接 API 详解
@@ -402,7 +402,7 @@ AndroidBridge.notifyTaskCompletion();
 
 目前已知存在此问题的教务系统及适配参考：
 
-- **树维教务**：[东北大学秦皇岛分校](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/NEUQ)、[长江大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/YANGTZEU)
+- **树维教务**：[东北大学秦皇岛分校](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NEUQ)、[长江大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YANGTZEU)
 
 ## 常见教务系统适配案例参考
 
@@ -410,20 +410,20 @@ AndroidBridge.notifyTaskCompletion();
 
 | 教务系统 | 适配案例 | adapter_id |
 |---------|---------|------------|
-| **正方教务 v9** | [广东科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/GDUST) | `GDUST` |
-| **乘方教务** | [山东石油化工学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/SDIPCT) | `SDIPCT` |
-| **树维教务** | [天津农学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TJAU) | `TJAU` |
-| **超星教务** | [山西工程职业学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/SXGCXY) | `SXGCXY_01` |
-| **URP 教务** | [天津城建大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/TCU) | `TCU_01` |
-| **青果教务** | [宿州学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/AHSZU) | `AHSZU_01` |
-| **金智教务** | [三峡大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CTGU) | `CTGU` |
-| **金智新教务** | [成都航空职业技术大学](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/CAPU) | `CAPU` |
+| **正方教务 v9** | [广东科技学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/GDUST) | `GDUST` |
+| **乘方教务** | [山东石油化工学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SDIPCT) | `SDIPCT` |
+| **树维教务** | [天津农学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TJAU) | `TJAU` |
+| **超星教务** | [山西工程职业学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SXGCXY) | `SXGCXY_01` |
+| **URP 教务** | [天津城建大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TCU) | `TCU_01` |
+| **青果教务** | [宿州学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/AHSZU) | `AHSZU_01` |
+| **金智教务** | [三峡大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CTGU) | `CTGU` |
+| **金智新教务** | [成都航空职业技术大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CAPU) | `CAPU` |
 
 ::: warning 强智教务
 强智教务系统版本差异较大，部分学校还有定制修改，暂无通用适配方案。以下案例仅作参考，不可直接套用：
 
-- [南昌航空大学科技学院](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/STCNCHU)（数据在 `id='kbtable'` 内）
-- [中国石油大学(华东)](https://github.com/XingHeYuZhuan/shiguang_warehouse/tree/main/resources/UPC)（数据在 `id='timetable'` 内）
+- [南昌航空大学科技学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/STCNCHU)（数据在 `id='kbtable'` 内）
+- [中国石油大学(华东)](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/UPC)（数据在 `id='timetable'` 内）
 :::
 
 ## 建议与示例

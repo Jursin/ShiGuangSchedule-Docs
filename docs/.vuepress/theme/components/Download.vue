@@ -48,7 +48,7 @@ async function fetchLatestRelease() {
     const controller = new AbortController()
     const timeoutId = window.setTimeout(() => controller.abort(), 10000)
 
-    const response = await fetch(`https://api.github.com/repos/XingHeYuZhuan/shiguangschedule/releases?per_page=20`, {
+    const response = await fetch(`https://api.github.com/repos/ShiGuangSchedule/shiguangschedule/releases?per_page=20`, {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
         'User-Agent': 'ShiGuangSchedule-Docs/1.0'
@@ -117,7 +117,7 @@ function getDownloadUrl(asset: any): string {
   const baseUrl = asset.browser_download_url
   if (selectedDownloadSource.value === 'gitee.com') {
     return baseUrl.replace(
-      'https://github.com/XingHeYuZhuan/shiguangschedule',
+      'https://github.com/ShiGuangSchedule/shiguangschedule',
       'https://gitee.com/XingHeYuZhuan-gh/shiguangschedule'
     )
   }
@@ -255,7 +255,7 @@ onMounted(() => {
           <a
             :href="isUsingGiteeFallback
               ? 'https://gitee.com/XingHeYuZhuan-gh/shiguangschedule/releases'
-              : 'https://github.com/XingHeYuZhuan/shiguangschedule/releases'"
+              : 'https://github.com/ShiGuangSchedule/shiguangschedule/releases'"
             target="_blank"
             rel="noopener noreferrer">
             查看历史版本
