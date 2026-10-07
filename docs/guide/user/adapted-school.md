@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/05 12:00:10`
+> 本页面由脚本自动同步，最后更新于：`2026/10/07 12:15:23`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -188,6 +188,7 @@ createTime: 2026/03/04 20:21:35
 ### Q
 - [齐齐哈尔大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QQHRU/adapters.yaml)
 - [齐齐哈尔工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QQHRIT/adapters.yaml)
+- [青岛大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QDU/adapters.yaml)
 - [青岛黄海学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QDHHC/adapters.yaml)
 - [青岛理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QUT/adapters.yaml)
 - [青岛农业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QAU/adapters.yaml)
@@ -256,6 +257,7 @@ createTime: 2026/03/04 20:21:35
 - [云南财经大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YNUFE/adapters.yaml)
 ### Z
 - [枣庄学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/UZZ/adapters.yaml)
+- [肇庆学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/ZQU/adapters.yaml)
 - [浙江工商职业技术学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/ZJBTI/adapters.yaml)
 - [浙江工业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/ZJUT/adapters.yaml)
 - [浙江树人学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/ZJSRU/adapters.yaml)
