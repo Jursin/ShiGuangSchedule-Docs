@@ -1,7 +1,22 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 
+type OsId = 'android' | 'windows' | 'macos' | 'linux'
 type DownloadSourceId = 'gitee.com' | 'github.com' | 'gh.dpik.top' | 'wget.la'
+
+interface OsType {
+  id: OsId
+  name: string
+  description: string
+  icon: string
+  match: (fileName: string) => boolean
+}
+
+interface ArchType {
+  id: string
+  name: string
+  description: string
+}
 
 interface DownloadSource {
   id: DownloadSourceId
@@ -12,10 +27,38 @@ const releases = ref<any[]>([])
 const isLoading = ref(false)
 const hasError = ref(false)
 const errorMessage = ref('')
+const selectedOs = ref<OsId>('android')
+const selectedArch = ref('all')
 const selectedDownloadSource = ref<DownloadSourceId>('gitee.com')
+const isOsDropdownOpen = ref(false)
+const isArchDropdownOpen = ref(false)
+const isSourceDropdownOpen = ref(false)
 const isUsingGiteeFallback = ref(false)
 const copiedShaAssetId = ref<string | number | null>(null)
 let copiedShaTimer: number | undefined
+
+const osTypes: OsType[] = [
+  { id: 'android', name: 'Android', description: 'apk 安装包', icon: 'devicon:android', match: file => file.endsWith('.apk') },
+  { id: 'windows', name: 'Windows', description: 'exe/msi 安装包', icon: 'logos:microsoft-windows-icon', match: file => file.includes('windows-') },
+  { id: 'macos', name: 'macOS', description: 'dmg/pkg 安装包', icon: 'devicon:apple', match: file => file.includes('macos-') },
+  { id: 'linux', name: 'Linux', description: 'deb/rpm 安装包', icon: 'devicon:linux', match: file => file.includes('linux-') }
+]
+
+const ALL_ARCHS: ArchType = { id: 'all', name: '全部架构', description: '该系统全部文件' }
+
+const desktopArchs: ArchType[] = [ALL_ARCHS, { id: 'x64', name: 'x64', description: '64位 Intel/AMD' }]
+
+const archTypes: Record<OsId, ArchType[]> = {
+  android: [
+    ALL_ARCHS,
+    { id: 'arm64-v8a', name: 'arm64-v8a', description: '64位 ARM（推荐）' },
+    { id: 'armeabi-v7a', name: 'armeabi-v7a', description: '32位 ARM' },
+    { id: 'x86_64', name: 'x86_64', description: '64位 x86' }
+  ],
+  windows: desktopArchs,
+  macos: [ALL_ARCHS, { id: 'arm64', name: 'arm64', description: 'Apple Silicon' }],
+  linux: desktopArchs
+}
 
 const githubDownloadSources: DownloadSource[] = [
   { id: 'gitee.com', description: 'Gitee 镜像源' },
@@ -33,10 +76,18 @@ function isGithubSource(sourceId: DownloadSourceId) {
 }
 
 // 取第一个 release
-const currentRelease = computed(() => {
-  if (!releases.value.length) return null
-  return releases.value[0]
-})
+const currentRelease = computed(() => releases.value[0] || null)
+
+const currentOs = computed(() => osTypes.find(os => os.id === selectedOs.value)!)
+const archList = computed(() => archTypes[selectedOs.value])
+const currentArch = computed(() => archList.value.find(arch => arch.id === selectedArch.value) as ArchType)
+const currentDownloadSource = computed(() => downloadSources.value.find(s => s.id === selectedDownloadSource.value)!)
+
+function selectOs(id: OsId) {
+  selectedOs.value = id
+  selectedArch.value = 'all'
+  isOsDropdownOpen.value = false
+}
 
 async function fetchLatestRelease() {
   isLoading.value = true
@@ -109,10 +160,6 @@ async function fetchLatestRelease() {
 }
 
 // 获取下载链接
-function getProxyUrl(proxyHost: string, asset: any): string {
-  return `https://${proxyHost}/${asset.browser_download_url}`
-}
-
 function getDownloadUrl(asset: any): string {
   const baseUrl = asset.browser_download_url
   if (selectedDownloadSource.value === 'gitee.com') {
@@ -124,30 +171,37 @@ function getDownloadUrl(asset: any): string {
   if (selectedDownloadSource.value === 'github.com') {
     return baseUrl
   }
-  return getProxyUrl(selectedDownloadSource.value, asset)
+  return `https://${selectedDownloadSource.value}/${baseUrl}`
 }
 
 function getAssetSha256(asset: any): string {
   const digest = String(asset?.digest || '')
-  if (!digest) return '未提供'
-  return digest.replace(/^sha256:/i, '')
+  return digest ? digest.replace(/^sha256:/i, '') : '未提供'
 }
 
 async function copyAssetSha256(asset: any) {
   const sha256 = getAssetSha256(asset)
-  if (!sha256 || sha256 === '未提供') return
+  if (sha256 === '未提供') return
 
-  const text = `sha256:${sha256}`
-  await navigator.clipboard.writeText(text)
+  await navigator.clipboard.writeText(`sha256:${sha256}`)
 
   copiedShaAssetId.value = asset.id
-  if (copiedShaTimer) {
-    window.clearTimeout(copiedShaTimer)
-  }
+  if (copiedShaTimer) window.clearTimeout(copiedShaTimer)
   copiedShaTimer = window.setTimeout(() => {
     copiedShaAssetId.value = null
   }, 2000)
 }
+
+// 按操作系统与架构过滤资源
+const filteredAssets = computed(() => {
+  const os = currentOs.value
+  const arch = selectedArch.value
+
+  return (currentRelease.value?.assets || []).filter((asset: any) => {
+    const file = String(asset.name || '').toLowerCase()
+    return os.match(file) && (arch === 'all' || file.includes(arch))
+  })
+})
 
 // 格式化文件大小
 function formatFileSize(bytes: number): string {
@@ -157,6 +211,11 @@ function formatFileSize(bytes: number): string {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
+
+// 处理下拉菜单的blur事件
+const handleOsDropdownBlur = () => setTimeout(() => isOsDropdownOpen.value = false, 200)
+const handleArchDropdownBlur = () => setTimeout(() => isArchDropdownOpen.value = false, 200)
+const handleSourceDropdownBlur = () => setTimeout(() => isSourceDropdownOpen.value = false, 200)
 
 // 组件挂载时获取数据
 onMounted(() => {
@@ -192,21 +251,105 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- 下载源选择 -->
+      <!-- 下载选择器 -->
       <div class="download-selector">
-        <label class="selector-label">下载源</label>
-        <div class="source-grid">
-          <button v-for="source in downloadSources" :key="source.id" class="source-btn"
-            :class="{ 'is-selected': selectedDownloadSource === source.id }"
-            @click="selectedDownloadSource = source.id">
-            <img v-if="isGithubSource(source.id)" src="/icons/github-dark.png" class="source-icon github-light">
-            <img v-if="isGithubSource(source.id)" src="/icons/github-light.png" class="source-icon github-dark">
-            <img v-else src="/icons/gitee.png" class="source-icon">
-            <span class="source-info">
-              <span class="source-name">{{ source.id }}</span>
-              <span class="source-desc">{{ source.description }}</span>
-            </span>
-          </button>
+        <div class="selector-controls">
+          <!-- 操作系统选择器 -->
+          <div class="dropdown-container">
+            <label class="dropdown-label">操作系统</label>
+            <div class="dropdown" :class="{ 'is-open': isOsDropdownOpen }">
+              <button class="dropdown-trigger" @click="isOsDropdownOpen = !isOsDropdownOpen"
+                @blur="handleOsDropdownBlur">
+                <span class="dropdown-content">
+                  <Icon :key="currentOs.icon" :name="currentOs.icon" size="1.5em" class="os-icon" />
+                  <span class="option-info">
+                    <span class="option-name">{{ currentOs.name }}</span>
+                    <span class="option-desc">{{ currentOs.description }}</span>
+                  </span>
+                </span>
+                <Icon v-if="isOsDropdownOpen" name="lucide:chevron-up" class="dropdown-arrow" />
+                <Icon v-else name="lucide:chevron-down" class="dropdown-arrow" />
+              </button>
+
+              <div class="dropdown-menu">
+                <button v-for="os in osTypes" :key="os.id" class="dropdown-item"
+                  :class="{ 'is-selected': selectedOs === os.id }"
+                  @click="selectOs(os.id)">
+                  <Icon :name="os.icon" size="1.5em" class="os-icon" />
+                  <span class="option-info">
+                    <span class="option-name">{{ os.name }}</span>
+                    <span class="option-desc">{{ os.description }}</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 设备架构选择器 -->
+          <div class="dropdown-container">
+            <label class="dropdown-label">设备架构</label>
+            <div class="dropdown" :class="{ 'is-open': isArchDropdownOpen }">
+              <button class="dropdown-trigger" @click="isArchDropdownOpen = !isArchDropdownOpen"
+                @blur="handleArchDropdownBlur">
+                <span class="dropdown-content">
+                  <span class="option-info">
+                    <span class="option-name">{{ currentArch.name }}</span>
+                    <span class="option-desc">{{ currentArch.description }}</span>
+                  </span>
+                </span>
+                <Icon v-if="isArchDropdownOpen" name="lucide:chevron-up" class="dropdown-arrow" />
+                <Icon v-else name="lucide:chevron-down" class="dropdown-arrow" />
+              </button>
+
+              <div class="dropdown-menu">
+                <button v-for="arch in archList" :key="arch.id" class="dropdown-item"
+                  :class="{ 'is-selected': selectedArch === arch.id }"
+                  @click="selectedArch = arch.id; isArchDropdownOpen = false">
+                  <span class="option-info">
+                    <span class="option-name">{{ arch.name }}</span>
+                    <span class="option-desc">{{ arch.description }}</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 下载源选择器 -->
+          <div class="dropdown-container">
+            <label class="dropdown-label">下载源</label>
+            <div class="dropdown" :class="{ 'is-open': isSourceDropdownOpen }">
+              <button class="dropdown-trigger" @click="isSourceDropdownOpen = !isSourceDropdownOpen"
+                @blur="handleSourceDropdownBlur">
+                <span class="dropdown-content">
+                  <img v-if="isGithubSource(currentDownloadSource.id)" src="/icons/github-dark.png"
+                    class="source-icon github-light">
+                  <img v-if="isGithubSource(currentDownloadSource.id)" src="/icons/github-light.png"
+                    class="source-icon github-dark">
+                  <img v-else src="/icons/gitee.png" class="source-icon">
+                  <span class="option-info">
+                    <span class="option-name">{{ currentDownloadSource.id }}</span>
+                    <span class="option-desc">{{ currentDownloadSource.description }}</span>
+                  </span>
+                </span>
+                <Icon v-if="isSourceDropdownOpen" name="lucide:chevron-up" class="dropdown-arrow" />
+                <Icon v-else name="lucide:chevron-down" class="dropdown-arrow" />
+              </button>
+
+              <div class="dropdown-menu">
+                <button v-for="source in downloadSources" :key="source.id" class="dropdown-item"
+                  :class="{ 'is-selected': selectedDownloadSource === source.id }"
+                  @click="selectedDownloadSource = source.id; isSourceDropdownOpen = false">
+                  <img v-if="isGithubSource(source.id)" src="/icons/github-dark.png" class="source-icon github-light">
+                  <img v-if="isGithubSource(source.id)" src="/icons/github-light.png" class="source-icon github-dark">
+                  <img v-else src="/icons/gitee.png" class="source-icon">
+                  <span class="option-info">
+                    <span class="option-name">{{ source.id }}</span>
+                    <span class="option-desc">{{ source.description }}</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -214,8 +357,8 @@ onMounted(() => {
       <div class="download-section">
         <h3 style="margin-bottom: 1rem; font-weight: 600;">文件列表</h3>
 
-        <div v-if="currentRelease.assets && currentRelease.assets.length > 0" class="assets-list">
-          <div v-for="asset in currentRelease.assets" :key="asset.id" class="asset-item">
+        <div v-if="filteredAssets.length > 0" class="assets-list">
+          <div v-for="asset in filteredAssets" :key="asset.id" class="asset-item">
             <div class="asset-info">
               <div class="asset-header">
                 <Icon name="octicon:package-16" class="asset-icon" size="1.4em" />
@@ -246,8 +389,8 @@ onMounted(() => {
 
         <div v-else class="no-assets">
           <div class="no-assets-content">
-            <h4>暂无下载文件</h4>
-            <p>请稍后重试</p>
+            <h4>暂无适用于 {{ currentOs.name }} {{ currentArch.name }} 的下载文件</h4>
+            <p>请尝试调整操作系统或设备架构</p>
           </div>
         </div>
 
@@ -397,7 +540,7 @@ onMounted(() => {
   color: var(--vp-c-text-1);
 }
 
-/* 下载源选择 */
+/* 下载选择器 */
 .download-selector {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
@@ -406,25 +549,34 @@ onMounted(() => {
   margin-bottom: 24px;
 }
 
-.selector-label {
+.selector-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-label {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-size: 1rem;
   font-weight: 600;
   color: var(--vp-c-text-1);
 }
 
-.source-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+.dropdown {
+  position: relative;
 }
 
-.source-btn {
+.dropdown-trigger {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
+  justify-content: space-between;
+  padding: 8px 12px;
   background: var(--vp-c-bg);
   border: 2px solid var(--vp-c-border);
   border-radius: 12px;
@@ -434,22 +586,33 @@ onMounted(() => {
   transition: all 0.2s ease;
 }
 
-.source-btn:hover {
-  border-color: var(--vp-c-brand-2);
+.dropdown-trigger:hover,
+.dropdown.is-open .dropdown-trigger {
+  border-color: var(--vp-c-brand-1);
 }
 
-.source-btn.is-selected {
-  border-color: var(--vp-c-brand-1);
-  background: var(--vp-c-brand-soft);
+.dropdown.is-open .dropdown-trigger {
   box-shadow: 0 0 0 3px var(--vp-c-brand-soft);
 }
 
+.dropdown-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.os-icon,
 .source-icon {
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
+}
+
+.source-icon {
   object-fit: cover;
   border-radius: 4px;
-  flex-shrink: 0;
 }
 
 [data-theme="dark"] img.github-light {
@@ -460,7 +623,7 @@ onMounted(() => {
   display: none;
 }
 
-.source-info {
+.option-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -468,16 +631,69 @@ onMounted(() => {
   min-width: 0;
 }
 
-.source-name {
+.option-name {
   font-weight: 600;
   color: var(--vp-c-text-1);
   line-height: 1.6;
 }
 
-.source-desc {
+.option-desc {
   font-size: 0.75rem;
   color: var(--vp-c-text-2);
   line-height: 1.2;
+}
+
+.dropdown-arrow {
+  color: var(--vp-c-text-3);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  box-shadow: var(--vp-shadow-3);
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown.is-open .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--vp-c-default-soft);
+}
+
+.dropdown-item.is-selected {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
 }
 
 /* 下载文件列表 */
@@ -655,6 +871,10 @@ onMounted(() => {
     padding: 20px;
   }
 
+  .title {
+    font-size: 1.75rem;
+  }
+
   .release-name {
     font-size: 1.25rem;
   }
@@ -667,8 +887,8 @@ onMounted(() => {
     padding: 20px;
   }
 
-  .source-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .selector-controls {
+    grid-template-columns: 1fr;
   }
 
   .asset-item {

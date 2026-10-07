@@ -11,7 +11,7 @@ aside: false
 import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 </script>
 
-==拾光课程表==是一款面向中国高校师生的**安卓**课程表应用，支持通过**适配脚本**导入各类教务系统课程数据，方便用户高效查看和管理个人课表。项目注重**开放性**和**可扩展性**，鼓励社区开发者参与适配和功能完善。
+==拾光课程表==是一款面向中国高校师生的课程表应用，支持通过**适配脚本**导入各类教务系统课程数据，方便用户高效查看和管理个人课表。项目注重**开放性**和**可扩展性**，鼓励社区开发者参与适配和功能完善。
 
 ![GitHub Stars](https://img.shields.io/github/stars/ShiGuangSchedule/shiguangschedule?style=flat&logo=github)
 ![GitHub Watchers](https://img.shields.io/github/watchers/ShiGuangSchedule/shiguangschedule?style=flat&logo=github)
