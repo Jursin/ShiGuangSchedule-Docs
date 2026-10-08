@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/07 12:15:23`
+> 本页面由脚本自动同步，最后更新于：`2026/10/08 12:27:21`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -110,6 +110,7 @@ createTime: 2026/03/04 20:21:35
 - [河南师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HNSF/adapters.yaml)
 - [河南信息科技学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HIIT/adapters.yaml)
 - [河南职业技术学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HNZY/adapters.yaml)
+- [菏泽学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HZU/adapters.yaml)
 - [黑龙江大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HLJU/adapters.yaml)
 - [衡阳师范学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HYNU/adapters.yaml)
 - [呼和浩特民族学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/IMNC/adapters.yaml)
@@ -252,6 +253,7 @@ createTime: 2026/03/04 20:21:35
 - [徐州医科大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XZHMU/adapters.yaml)
 - [许昌学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XCU/adapters.yaml)
 ### Y
+- [燕山大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YSU/adapters.yaml)
 - [扬州大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YZU/adapters.yaml)
 - [宜宾学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YIBINU/adapters.yaml)
 - [云南财经大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YNUFE/adapters.yaml)
