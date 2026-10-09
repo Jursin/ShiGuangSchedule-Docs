@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/08 12:27:21`
+> 本页面由脚本自动同步，最后更新于：`2026/10/09 12:31:24`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -29,6 +29,7 @@ createTime: 2026/03/04 20:21:35
 - [北部湾大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/BBGU/adapters.yaml)
 - [北方工业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NCUT/adapters.yaml)
 - [北京工商大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/BTBU/adapters.yaml)
+- [北京师范大学珠海校区](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/BNUZH/adapters.yaml)
 - [北京邮电大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/BUPT/adapters.yaml)
 ### C
 - [常州大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CCZU/adapters.yaml)
@@ -100,6 +101,7 @@ createTime: 2026/03/04 20:21:35
 - [合肥师范学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HFNU/adapters.yaml)
 - [河北地质大学华信学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HBGUHX/adapters.yaml)
 - [河北经贸大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HUEB/adapters.yaml)
+- [河北农业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HEBAU/adapters.yaml)
 - [河南财经政法大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HUEL/adapters.yaml)
 - [河南城建学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HUUC/adapters.yaml)
 - [河南工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HAUE/adapters.yaml)
@@ -172,6 +174,7 @@ createTime: 2026/03/04 20:21:35
 - [南昌航空大学科技学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/STCNCHU/adapters.yaml)
 - [南昌科技职业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/THDM/adapters.yaml)
 - [南方科技大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SUSTECH/adapters.yaml)
+- [南华大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/USC/adapters.yaml)
 - [南京工业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NJTECH/adapters.yaml)
 - [南京工业职业技术大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NIIT/adapters.yaml)
 - [南京航空航天大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NUAA/adapters.yaml)
@@ -213,6 +216,7 @@ createTime: 2026/03/04 20:21:35
 - [上海师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SHNU/adapters.yaml)
 - [上海中侨职业技术大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SHZQ/adapters.yaml)
 - [沈阳科技学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SYIST/adapters.yaml)
+- [四川工商职业技术学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SCTBC/adapters.yaml)
 - [四川机电职业技术学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SCEMI/adapters.yaml)
 - [四川师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SICNU/adapters.yaml)
 - [四川托普信息技术职业学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SCETOP/adapters.yaml)
@@ -252,6 +256,7 @@ createTime: 2026/03/04 20:21:35
 - [徐州工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XZIT/adapters.yaml)
 - [徐州医科大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XZHMU/adapters.yaml)
 - [许昌学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XCU/adapters.yaml)
+- [宣化科技职业学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XHKJZYXY/adapters.yaml)
 ### Y
 - [燕山大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YSU/adapters.yaml)
 - [扬州大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YZU/adapters.yaml)
