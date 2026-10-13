@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/11 11:56:06`
+> 本页面由脚本自动同步，最后更新于：`2026/10/13 13:26:04`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -54,6 +54,7 @@ createTime: 2026/03/04 20:21:35
 - [长春工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CCIT/adapters.yaml)
 - [长春理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CUST/adapters.yaml)
 - [长江大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YANGTZEU/adapters.yaml)
+- [长沙工业学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CCSUT/adapters.yaml)
 ### D
 - [大连大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLU/adapters.yaml)
 - [大连工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLUTCI/adapters.yaml)
@@ -203,6 +204,7 @@ createTime: 2026/03/04 20:21:35
 ### S
 - [三明学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SMXY/adapters.yaml)
 - [三峡大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/CTGU/adapters.yaml)
+- [山东财经大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SDUFE/adapters.yaml)
 - [山东财经大学燕山学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/YSSDUFE/adapters.yaml)
 - [山东华宇工学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/HUAYU/adapters.yaml)
 - [山东交通学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SDJTU/adapters.yaml)
