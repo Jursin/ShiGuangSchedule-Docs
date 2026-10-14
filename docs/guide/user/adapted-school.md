@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/13 13:26:04`
+> 本页面由脚本自动同步，最后更新于：`2026/10/14 11:29:37`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -156,6 +156,7 @@ createTime: 2026/03/04 20:21:35
 - [江西航空职业技术学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JHZYEDU/adapters.yaml)
 - [江西理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JXUST/adapters.yaml)
 - [江西师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JXNU/adapters.yaml)
+- [景德镇艺术职业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JDZVUA/adapters.yaml)
 ### K
 - [喀什大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/KSU/adapters.yaml)
 ### L
