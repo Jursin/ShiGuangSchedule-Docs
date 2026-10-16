@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/15 11:09:02`
+> 本页面由脚本自动同步，最后更新于：`2026/10/16 11:05:01`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -219,6 +219,7 @@ createTime: 2026/03/04 20:21:35
 - [山西工程职业学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SXGCXY/adapters.yaml)
 - [上海财经大学浙江学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SHUFEZJ/adapters.yaml)
 - [上海电力大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SHIEP/adapters.yaml)
+- [上海立达学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/LIDAPOLY/adapters.yaml)
 - [上海师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SHNU/adapters.yaml)
 - [上海中侨职业技术大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SHZQ/adapters.yaml)
 - [沈阳科技学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SYIST/adapters.yaml)
