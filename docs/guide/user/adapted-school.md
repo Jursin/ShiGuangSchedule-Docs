@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/10/17 10:57:24`
+> 本页面由脚本自动同步，最后更新于：`2026/10/18 10:58:51`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -256,8 +256,10 @@ createTime: 2026/03/04 20:21:35
 - [西安理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XAUT/adapters.yaml)
 - [西安文理学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XAWL/adapters.yaml)
 - [西北工业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NWPU/adapters.yaml)
+- [西北农林科技大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NWAFU/adapters.yaml)
 - [西南大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SWU/adapters.yaml)
 - [西南交通大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SWJTU/adapters.yaml)
+- [西南林业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SWFU/adapters.yaml)
 - [新疆工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XJIE/adapters.yaml)
 - [新疆政法学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XJZFU/adapters.yaml)
 - [信阳农林学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/XYAFU/adapters.yaml)
