@@ -13,7 +13,7 @@ env:
 
 jobs:
   update-changelog:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
 
@@ -35,4 +35,6 @@ jobs:
             exit 0
           fi
           git commit -m "docs: 自动更新更新日志"
+          # 远程可能已有新提交，先变基再推送，避免 non-fast-forward 失败
+          git pull --rebase --autostash origin main
           git push

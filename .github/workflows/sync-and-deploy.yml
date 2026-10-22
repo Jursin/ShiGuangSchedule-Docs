@@ -11,23 +11,61 @@ permissions:
 env:
   TZ: Asia/Shanghai
 
+# 同一时刻只允许一个同步任务，避免并发推送互相覆盖
+concurrency:
+  group: sync-schools
+  cancel-in-progress: false
+
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
-
-      - name: Setup pnpm
-        uses: pnpm/setup@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version: '24'
-          cache: 'pnpm'
+
+      # 缓存 pnpm 本体（corepack）与依赖存储
+      - name: Cache pnpm
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.cache/node/corepack
+            ~/.local/share/pnpm/store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      # 安装 pnpm，网络抖动时最多重试 3 次
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          n=0
+          until corepack prepare --activate; do
+            n=$((n + 1))
+            if [ "$n" -ge 3 ]; then
+              echo "::error::pnpm 安装失败，已重试 3 次"
+              exit 1
+            fi
+            echo "pnpm 安装失败，10 秒后重试（$n/3）"
+            sleep 10
+          done
+          pnpm --version
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          n=0
+          until pnpm install --frozen-lockfile; do
+            n=$((n + 1))
+            if [ "$n" -ge 3 ]; then
+              echo "::error::依赖安装失败，已重试 3 次"
+              exit 1
+            fi
+            echo "依赖安装失败，10 秒后重试（$n/3）"
+            sleep 10
+          done
 
       - name: Run Sync Script
         run: node tools/sync-schools.cjs
@@ -42,4 +80,6 @@ jobs:
             exit 0
           fi
           git commit -m "chore: 自动同步已适配学校列表"
+          # 远程可能已有新提交，先变基再推送，避免 non-fast-forward 失败
+          git pull --rebase --autostash origin main
           git push
