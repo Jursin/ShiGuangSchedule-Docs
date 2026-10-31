@@ -38,7 +38,7 @@ const copiedShaAssetId = ref<string | number | null>(null)
 let copiedShaTimer: number | undefined
 
 const osTypes: OsType[] = [
-  { id: 'android', name: 'Android', description: 'apk 安装包', icon: 'devicon:android', match: file => file.endsWith('.apk') },
+  { id: 'android', name: 'Android', description: 'apk 安装包', icon: 'selfhst:android', match: file => file.endsWith('.apk') },
   { id: 'windows', name: 'Windows', description: 'exe/msi 安装包', icon: 'logos:microsoft-windows-icon', match: file => file.includes('windows-') },
   { id: 'macos', name: 'macOS', description: 'dmg/pkg 安装包', icon: 'devicon:apple', match: file => file.includes('macos-') },
   { id: 'linux', name: 'Linux', description: 'deb/rpm 安装包', icon: 'devicon:linux', match: file => file.includes('linux-') }
@@ -60,16 +60,12 @@ const archTypes: Record<OsId, ArchType[]> = {
   linux: desktopArchs
 }
 
-const githubDownloadSources: DownloadSource[] = [
+const downloadSources: DownloadSource[] = [
   { id: 'gitee.com', description: 'Gitee 镜像源' },
   { id: 'github.com', description: 'GitHub 官方源' },
   { id: 'gh.dpik.top', description: 'GitHub 镜像源' },
   { id: 'wget.la', description: 'GitHub 镜像源' }
 ]
-
-const downloadSources = computed(() =>
-  isUsingGiteeFallback.value ? githubDownloadSources.slice(0, 1) : githubDownloadSources
-)
 
 function isGithubSource(sourceId: DownloadSourceId) {
   return sourceId === 'github.com' || sourceId === 'wget.la' || sourceId === 'gh.dpik.top'
@@ -81,7 +77,7 @@ const currentRelease = computed(() => releases.value[0] || null)
 const currentOs = computed(() => osTypes.find(os => os.id === selectedOs.value)!)
 const archList = computed(() => archTypes[selectedOs.value])
 const currentArch = computed(() => archList.value.find(arch => arch.id === selectedArch.value) as ArchType)
-const currentDownloadSource = computed(() => downloadSources.value.find(s => s.id === selectedDownloadSource.value)!)
+const currentDownloadSource = computed(() => downloadSources.find(s => s.id === selectedDownloadSource.value)!)
 
 function selectOs(id: OsId) {
   selectedOs.value = id
@@ -159,19 +155,15 @@ async function fetchLatestRelease() {
   }
 }
 
-// 获取下载链接
+// 获取下载链接：统一换算成 GitHub 地址后再按所选源替换域名
+const GITHUB_REPO = 'https://github.com/ShiGuangSchedule/shiguangschedule'
+const GITEE_REPO = 'https://gitee.com/XingHeYuZhuan-gh/shiguangschedule'
+
 function getDownloadUrl(asset: any): string {
-  const baseUrl = asset.browser_download_url
-  if (selectedDownloadSource.value === 'gitee.com') {
-    return baseUrl.replace(
-      'https://github.com/ShiGuangSchedule/shiguangschedule',
-      'https://gitee.com/XingHeYuZhuan-gh/shiguangschedule'
-    )
-  }
-  if (selectedDownloadSource.value === 'github.com') {
-    return baseUrl
-  }
-  return `https://${selectedDownloadSource.value}/${baseUrl}`
+  const githubUrl = String(asset.browser_download_url).replace(GITEE_REPO, GITHUB_REPO)
+  if (selectedDownloadSource.value === 'gitee.com') return githubUrl.replace(GITHUB_REPO, GITEE_REPO)
+  if (selectedDownloadSource.value === 'github.com') return githubUrl
+  return `https://${selectedDownloadSource.value}/${githubUrl}`
 }
 
 function getAssetSha256(asset: any): string {
