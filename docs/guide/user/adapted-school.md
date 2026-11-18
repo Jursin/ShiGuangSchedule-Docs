@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/11/17 14:28:55`
+> 本页面由脚本自动同步，最后更新于：`2026/11/18 13:52:27`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -154,6 +154,7 @@ createTime: 2026/03/04 20:21:35
 ### J
 - [吉利学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/GUC/adapters.yaml)
 - [吉林大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JLU/adapters.yaml)
+- [吉林化工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JLUCT/adapters.yaml)
 - [济南大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/UJN/adapters.yaml)
 - [济南工程职业技术学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JNGCXY/adapters.yaml)
 - [济宁医学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/JNMC/adapters.yaml)
