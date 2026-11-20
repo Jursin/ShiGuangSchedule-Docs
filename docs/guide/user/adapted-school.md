@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/11/18 13:52:27`
+> 本页面由脚本自动同步，最后更新于：`2026/11/20 13:40:56`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -248,6 +248,7 @@ createTime: 2026/03/04 20:21:35
 - [泰山学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TSU/adapters.yaml)
 - [天津城建大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TCU/adapters.yaml)
 - [天津科技大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TUST/adapters.yaml)
+- [天津理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TJUT/adapters.yaml)
 - [天津农学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TJAU/adapters.yaml)
 - [同济大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/TONGJI/adapters.yaml)
 - [铜仁学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/GZTRC/adapters.yaml)
