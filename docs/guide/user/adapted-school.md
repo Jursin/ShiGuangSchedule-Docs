@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/11/20 13:40:56`
+> 本页面由脚本自动同步，最后更新于：`2026/11/21 13:35:22`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -61,6 +61,7 @@ createTime: 2026/03/04 20:21:35
 - [大连工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLUTCI/adapters.yaml)
 - [大连海事大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLMU/adapters.yaml)
 - [大连理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLUT/adapters.yaml)
+- [大连民族大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLNU/adapters.yaml)
 - [德州学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DZU/adapters.yaml)
 - [电子科技大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/UESTC/adapters.yaml)
 - [东北大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NEU/adapters.yaml)
@@ -215,6 +216,7 @@ createTime: 2026/03/04 20:21:35
 - [青岛农业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QAU/adapters.yaml)
 - [青海师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QHNU/adapters.yaml)
 - [曲阜师范大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QFNU/adapters.yaml)
+- [曲靖师范学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QJNU/adapters.yaml)
 - [泉州职业技术大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/QVTU/adapters.yaml)
 ### S
 - [三明学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/SMXY/adapters.yaml)
