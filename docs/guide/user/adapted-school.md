@@ -5,7 +5,7 @@ createTime: 2026/03/04 20:21:35
 
 > 适配脚本仓库：[ShiGuangSchedule/shiguang_warehouse](https://github.com/ShiGuangSchedule/shiguang_warehouse)
 >
-> 本页面由脚本自动同步，最后更新于：`2026/11/23 13:43:02`
+> 本页面由脚本自动同步，最后更新于：`2026/11/26 14:48:15`
 
 ## <Icon name="entypo:tools" /> 通用工具与教务
 
@@ -60,6 +60,7 @@ createTime: 2026/03/04 20:21:35
 - [大连大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLU/adapters.yaml)
 - [大连工程学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLUTCI/adapters.yaml)
 - [大连海事大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLMU/adapters.yaml)
+- [大连交通大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DJTU/adapters.yaml)
 - [大连理工大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLUT/adapters.yaml)
 - [大连民族大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DLNU/adapters.yaml)
 - [德州学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/DZU/adapters.yaml)
@@ -205,6 +206,7 @@ createTime: 2026/03/04 20:21:35
 - [南京邮电大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NJUPT/adapters.yaml)
 - [南开大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NANKAI/adapters.yaml)
 - [南通大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NTU/adapters.yaml)
+- [南阳理工学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NYIST/adapters.yaml)
 - [南阳师范学院](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/NYNU/adapters.yaml)
 - [内蒙古大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/IMU/adapters.yaml)
 - [内蒙古工业大学](https://github.com/ShiGuangSchedule/shiguang_warehouse/tree/main/resources/IMUT/adapters.yaml)
